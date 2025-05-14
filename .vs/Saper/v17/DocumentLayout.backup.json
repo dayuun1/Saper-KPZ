@@ -1,0 +1,120 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\vonso\\source\\repos\\Saper\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\models\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\models\\minefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\minefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\models\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\models\\celltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\celltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 15,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\GameManager.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\GameManager.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\GameManager.cs",
+              "RelativeToolTip": "Saper\\Models\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T12:54:52.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CellType.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\CellType.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\CellType.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\CellType.cs",
+              "RelativeToolTip": "Saper\\Models\\CellType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:36:57.89Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Cell.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\Cell.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\Cell.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\Cell.cs",
+              "RelativeToolTip": "Saper\\Models\\Cell.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwA4AAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:33:01.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Minefield.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\Minefield.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\Minefield.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\Minefield.cs",
+              "RelativeToolTip": "Saper\\Models\\Minefield.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAA1wGwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:41:38.205Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Saper\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\MainWindow.xaml",
+              "RelativeToolTip": "Saper\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-14T11:31:44.036Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Saper\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\MainWindow.xaml.cs",
+              "RelativeToolTip": "Saper\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:31:42.362Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
