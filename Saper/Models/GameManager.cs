@@ -40,5 +40,145 @@ namespace Saper.Models
             TimeSpan duration = Stopwatch.Elapsed;
             DifficultyState.UpdateScore(cellType);
         }
+        private bool IsInsideBounds(int x, int y)
+        {
+            if (x >= 0 && y >= 0 && x < Rows && y < Columns)
+            {
+                return true;
+            }
+            else { return false; }
+        }
+
+        public void OpenCell(int x, int y)
+        {
+            if (!IsInsideBounds(x, y)) return;
+
+            if (IsFirstMove(x, y))
+            {
+                RegenerateFieldUntilSafeCell(x, y);
+            }
+
+            Cell cell = Minefield.Cells[x, y];
+
+            if (cell.IsOpend) return;
+
+            cell.Open();
+
+            if (cell.IsMine)
+            {
+                if (IsSafeClick)
+                {
+                    Minefield.MineCount--;
+                }
+                else
+                {
+                    IsEnd = true;
+                }
+            }
+            else
+            {
+                DifficultyState.UpdateScore(cell.CellType);
+                Minefield.CellsToOpen--;
+
+                if (cell.CellType == CellType.Zero)
+                {
+                    OpenSurroundingCells(x, y);
+                }
+
+                if (Minefield.CellsToOpen == 0)
+                {
+                    IsEnd = true;
+                    IsWin = true;
+                }
+            }
+
+            IsSafeClick = false;
+        }
+
+        private bool IsFirstMove(int x, int y) =>
+            Minefield.CellsToOpen == Rows * Columns - Minefield.MineCount;
+
+        private void RegenerateFieldUntilSafeCell(int x, int y)
+        {
+            while (Minefield.Cells[x, y].CellType != CellType.Zero)
+            {
+                DifficultyState.GenerateMinefield();
+            }
+        }
+
+        private void OpenSurroundingCells(int x, int y)
+        {
+            for (int dx = -1; dx <= 1; dx++)
+            {
+                for (int dy = -1; dy <= 1; dy++)
+                {
+                    int nx = x + dx;
+                    int ny = y + dy;
+
+                    if ((dx != 0 || dy != 0) && IsInsideBounds(nx, ny))
+                    {
+                        OpenCell(nx, ny);
+                    }
+                }
+            }
+        }
+        public void ShowBombHint()
+        {
+            if (ShowMine <= 0) return;
+
+            MinusScore(20);
+            ShowMine--;
+
+            //позначити одну або декілька бомб як підказку
+        }
+        public void SafeClickHint()
+        {
+            MinusScore(5);
+            if (SafeClick <= 0) return;
+
+            IsSafeClick = true;
+            SafeClick--;
+        }
+        public void ShowLowestMineCellHint()
+        {
+            MinusScore(20);
+            if (ShowLowestMineCell <= 0) return;
+            ShowLowestMineCell--;
+
+            List<Cell> safeCandidates = new List<Cell>();
+            Cell bestCell = null;
+
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    var cell = Minefield.Cells[i, j];
+
+                    if (!cell.IsOpend && !cell.IsMine)
+                    {
+                        if (bestCell == null || cell.CellType < bestCell.CellType)
+                        {
+                            bestCell = cell;
+                            safeCandidates.Clear();
+                            safeCandidates.Add(cell);
+                        }
+                        else if (cell.CellType == bestCell.CellType)
+                        {
+                            safeCandidates.Add(cell);
+                        }
+                    }
+                }
+            }
+
+            if (bestCell != null)
+            {
+                //виділити клітинку на полі для гравця
+            }
+        }
+        private void MinusScore(int amount)
+        {
+            Score -= amount;
+            if (Score < 0) Score = 0;
+        }
     }
 }
