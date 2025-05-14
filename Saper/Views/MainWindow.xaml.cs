@@ -19,6 +19,7 @@ namespace Saper
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }
