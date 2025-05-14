@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\vonso\\source\\repos\\Saper\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\models\\difficultystate\\idifficultystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\idifficultystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\models\\difficultystate\\hardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\hardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\models\\difficultystate\\beginnerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\beginnerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper\\saper\\models\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -43,19 +55,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "IDifficultyState.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\DifficultyState\\IDifficultyState.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\IDifficultyState.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\DifficultyState\\IDifficultyState.cs",
+              "RelativeToolTip": "Saper\\Models\\DifficultyState\\IDifficultyState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T16:20:56.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HardState.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\DifficultyState\\HardState.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\HardState.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\DifficultyState\\HardState.cs",
+              "RelativeToolTip": "Saper\\Models\\DifficultyState\\HardState.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T16:20:53.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BeginnerState.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\DifficultyState\\BeginnerState.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\BeginnerState.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\DifficultyState\\BeginnerState.cs",
+              "RelativeToolTip": "Saper\\Models\\DifficultyState\\BeginnerState.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T16:20:51.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\GameManager.cs",
               "RelativeDocumentMoniker": "Saper\\Models\\GameManager.cs",
               "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\GameManager.cs",
               "RelativeToolTip": "Saper\\Models\\GameManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAowLgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T12:54:52.286Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "CellType.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\CellType.cs",
               "RelativeDocumentMoniker": "Saper\\Models\\CellType.cs",
@@ -67,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Cell.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\Cell.cs",
               "RelativeDocumentMoniker": "Saper\\Models\\Cell.cs",
@@ -79,7 +130,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "Minefield.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\Models\\Minefield.cs",
               "RelativeDocumentMoniker": "Saper\\Models\\Minefield.cs",
@@ -91,7 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Saper\\MainWindow.xaml",
@@ -102,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper\\Saper\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Saper\\MainWindow.xaml.cs",
