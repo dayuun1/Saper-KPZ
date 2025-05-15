@@ -23,3 +23,6 @@ C:\Users\vonso\source\repos\Saper2\Saper-KPZ\Saper\obj\Debug\net8.0-windows\Sape
 C:\Users\vonso\source\repos\Saper2\Saper-KPZ\Saper\obj\Debug\net8.0-windows\Saper.genruntimeconfig.cache
 C:\Users\vonso\source\repos\Saper2\Saper-KPZ\Saper\obj\Debug\net8.0-windows\ref\Saper.dll
 C:\Users\vonso\source\repos\Saper2\Saper-KPZ\Saper\obj\Debug\net8.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\vonso\source\repos\Saper2\Saper-KPZ\Saper\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Users\vonso\source\repos\Saper2\Saper-KPZ\Saper\obj\Debug\net8.0-windows\Saper.csproj.AssemblyReference.cache
+C:\Users\vonso\source\repos\Saper2\Saper-KPZ\Saper\obj\Debug\net8.0-windows\Saper.csproj.Up2Date

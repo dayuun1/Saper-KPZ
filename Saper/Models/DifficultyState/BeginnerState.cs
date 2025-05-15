@@ -31,7 +31,7 @@ namespace Saper.Models.DifficultyState
         {
             int score = cellType switch
             {
-                CellType.Zero => 10,
+                CellType.Zero => 0,
                 CellType.Five or CellType.Six => 25,
                 CellType.Seven or CellType.Eight => 35,
                 _ => 15

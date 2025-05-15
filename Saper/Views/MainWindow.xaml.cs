@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Saper.Models;
+using Saper.ViewModels;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +21,9 @@ namespace Saper
         public MainWindow()
         {
             InitializeComponent();
+            var gameManager = new GameManager();
+            var gameViewModel = new GameViewModel(gameManager);
+            DataContext = gameViewModel;
 
         }
     }
