@@ -2,11 +2,94 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Saper"
+        xmlns:local="clr-namespace:Saper.ViewModels"
+        xmlns:local1="clr-namespace:Saper.Converters"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="GameView" Height="1080" Width="1920"
+        WindowState="Maximized" WindowStyle="None">
+    <Window.Resources>
+        <local1:CellToImageConverter x:Key="CellToImageConverter"/>
+        <local1:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <local1:BoolToWinLoseMessage x:Key="BoolToWinLoseMessage"/>
+    </Window.Resources>
+    <DockPanel>
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                <TextBlock Text="Score:" FontSize="20" Margin="0,0,5,0"/>
+                <TextBlock Text="{Binding Score}" FontSize="20" Foreground="Blue"/>
+                <Button Content="Підказка" Command="{Binding ShowHintCommand}" Margin="20,0"/>
+                <Button Content="Бомба" Command="{Binding ShowBombCommand}" Margin="5,0"/>
+                <Button Content="Безпечно" Command="{Binding SafeClickCommand}" Margin="5,0"/>
+            </StackPanel>
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding Cells}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="{Binding Rows}" Columns="{Binding Columns}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button
+        Background="Transparent"
+        BorderBrush="Gray"
+        BorderThickness="1"
+        Padding="0"
+        Command="{Binding DataContext.CellClickCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+        CommandParameter="{Binding}"
+        IsEnabled="{Binding IsOpend, Converter={StaticResource InverseBooleanConverter}}">
 
-    </Grid>
+                            <Grid>
+                                <Image Source="{Binding CellType, Converter={StaticResource CellToImageConverter}}" Stretch="Uniform"/>
+
+                                <Image Source="/Images/flag.png" Stretch="Uniform">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsFlagged}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsOpend}" Value="True">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+
+                                <Image Source="/Images/closed.png" Stretch="Uniform">
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding IsOpend}" Value="True">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding IsFlagged}" Value="True">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Grid>
+
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="PreviewMouseRightButtonDown">
+                                    <i:InvokeCommandAction
+                    Command="{Binding DataContext.ToggleFlagCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                    CommandParameter="{Binding}" />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+        <TextBlock DockPanel.Dock="Bottom" Text="{Binding IsGameOver, Converter={StaticResource BoolToWinLoseMessage}}"
+                   FontSize="24" Foreground="DarkRed" HorizontalAlignment="Center" Margin="10"/>
+        </DockPanel>
 </Window>

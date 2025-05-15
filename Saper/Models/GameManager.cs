@@ -26,12 +26,14 @@ namespace Saper.Models
         {
             DifficultyState = difficulty;
             DifficultyState.SetHints();
+            
         }
         public Stopwatch Stopwatch { get; private set; } = new Stopwatch();
         public void StartGame()
         {
             Stopwatch.Restart();
             DifficultyState.GenerateMinefield();
+            OpenEdgeCells();
         }
 
         public void HandleCellOpen(CellType cellType)
@@ -180,5 +182,37 @@ namespace Saper.Models
             Score -= amount;
             if (Score < 0) Score = 0;
         }
+        public void ToggleFlag(int row, int col)
+        {
+            var cell = Minefield.Cells[row, col];
+            if (cell.IsOpend) return;
+
+            cell.IsFlagged = !cell.IsFlagged;
+
+            if (cell.IsFlagged)
+                Score += 5;
+            else
+                Score -= 5;
+        }
+        
+        public void OpenEdgeCells()
+        {
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    if (i == 0 || i == Rows - 1 || j == 0 || j == Columns - 1)
+                    {
+                        var cell = Minefield.Cells[i, j];
+                        if (!cell.IsOpend && !cell.IsMine)
+                        {
+                            cell.Open();
+                            Minefield.CellsToOpen--;
+                        }
+                    }
+                }
+            }
+        }
+
     }
 }
