@@ -6,7 +6,6 @@
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
         <local1:InverseBooleanConverter x:Key="InverseBooleanConverter" />
-        <local1:BoolToWinLoseMessage x:Key="BoolToWinLoseMessage" />
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
         <FontFamily x:Key="IrpinType">Fonts/IrpinType-Bold.ttf#Irpin Type Bold</FontFamily>
         <Style x:Key="ResourceButtonTemplate" TargetType="TextBlock">

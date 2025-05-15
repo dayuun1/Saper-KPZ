@@ -75,6 +75,10 @@ namespace Saper.Models
                 else
                 {
                     IsEnd = true;
+                    IsWin = false;  
+                    Stopwatch.Stop();
+                    EndGame(false);
+                    return;  
                 }
             }
             else
@@ -86,15 +90,46 @@ namespace Saper.Models
                 {
                     OpenSurroundingCells(x, y);
                 }
+            }
 
-                if (Minefield.CellsToOpen == 0)
-                {
-                    IsEnd = true;
-                    IsWin = true;
-                }
+            if (Minefield.CellsToOpen == 0)
+            {
+                IsEnd = true;
+                IsWin = true;
+                Stopwatch.Stop();
+                EndGame(true);
+                return;
+            }
+
+            if (AreAllMinesFlagged())
+            {
+                IsEnd = true;
+                IsWin = true;
+                Stopwatch.Stop();
+                EndGame(true);
             }
 
             IsSafeClick = false;
+        }
+
+        private bool AreAllMinesFlagged()
+        {
+            for (int i = 0; i < Rows; i++)
+            {
+                for (int j = 0; j < Columns; j++)
+                {
+                    var cell = Minefield.Cells[i, j];
+                    if (cell.IsMine && !cell.IsFlagged)
+                    {
+                        return false;
+                    }
+                    if (!cell.IsMine && cell.IsFlagged)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         private bool IsFirstMove(int x, int y) =>
@@ -124,59 +159,16 @@ namespace Saper.Models
                 }
             }
         }
-        public void ShowBombHint()
-        {
-            if (ShowMine <= 0) return;
-
-            MinusScore(20);
-            ShowMine--;
-
-            //позначити одну або декілька бомб як підказку
-        }
+       
         public void SafeClickHint()
         {
-            MinusScore(5);
+            MinusScore(30);
             if (SafeClick <= 0) return;
 
             IsSafeClick = true;
             SafeClick--;
         }
-        public void ShowLowestMineCellHint()
-        {
-            MinusScore(20);
-            if (ShowLowestMineCell <= 0) return;
-            ShowLowestMineCell--;
-
-            List<Cell> safeCandidates = new List<Cell>();
-            Cell bestCell = null;
-
-            for (int i = 0; i < Rows; i++)
-            {
-                for (int j = 0; j < Columns; j++)
-                {
-                    var cell = Minefield.Cells[i, j];
-
-                    if (!cell.IsOpend && !cell.IsMine)
-                    {
-                        if (bestCell == null || cell.CellType < bestCell.CellType)
-                        {
-                            bestCell = cell;
-                            safeCandidates.Clear();
-                            safeCandidates.Add(cell);
-                        }
-                        else if (cell.CellType == bestCell.CellType)
-                        {
-                            safeCandidates.Add(cell);
-                        }
-                    }
-                }
-            }
-
-            if (bestCell != null)
-            {
-                //виділити клітинку на полі для гравця
-            }
-        }
+       
         private void MinusScore(int amount)
         {
             Score -= amount;
@@ -212,6 +204,16 @@ namespace Saper.Models
                     }
                 }
             }
+        }
+
+        public event Action<bool, int, TimeSpan>? GameEnded;
+
+        public void EndGame(bool isWin)
+        {
+            IsEnd = true;
+            IsWin = isWin;
+            Stopwatch.Stop();
+            GameEnded?.Invoke(isWin, Score, Stopwatch.Elapsed);
         }
 
     }

@@ -25,7 +25,6 @@ namespace Saper.ViewModels
         public ICommand ToggleFlagCommand { get; }
 
         public int Score => _gameManager.Score;
-        public bool IsGameOver => _gameManager.IsEnd;
         public bool IsWin => _gameManager.IsWin;
         public int Rows => _gameManager.Rows;
         public int Columns => _gameManager.Columns;
@@ -33,7 +32,7 @@ namespace Saper.ViewModels
         public GameViewModel(GameManager gameManager)
         {
             _gameManager = gameManager;
-
+            gameManager.GameEnded += OnGameEnded;
             Cells = new ObservableCollection<CellViewModel>();
 
             CellClickCommand = new RelayCommand(param =>
@@ -68,23 +67,13 @@ namespace Saper.ViewModels
                 }
             });
 
-            ShowHintCommand = new RelayCommand(param =>
-            {
-                _gameManager.ShowLowestMineCellHint();
-            });
-
-            ShowBombCommand = new RelayCommand(param =>
-            {
-                _gameManager.ShowBombHint();
-            });
-
             SafeClickCommand = new RelayCommand(param =>
             {
                 _gameManager.SafeClickHint();
             });
             _gameManager.Rows = 10;
             _gameManager.Columns = 10;
-            _gameManager.SetDifficulty(new HardState(_gameManager));
+            _gameManager.SetDifficulty(new IntermediateState(_gameManager));
             _gameManager.StartGame(); 
 
             InitializeCells();
@@ -108,7 +97,26 @@ namespace Saper.ViewModels
                 }
             }
         }
+        private bool _isGameOver;
+        public bool IsGameOver
+        {
+            get => _isGameOver;
+            set { _isGameOver = value; OnPropertyChanged(nameof(IsGameOver)); }
+        }
 
+        private string _gameResultMessage = "";
+        public string GameResultMessage
+        {
+            get => _gameResultMessage;
+            set { _gameResultMessage = value; OnPropertyChanged(nameof(GameResultMessage)); }
+        }
+        private void OnGameEnded(bool isWin, int score, TimeSpan time)
+        {
+            IsGameOver = true;
+            GameResultMessage = isWin
+                ? $"Ви перемогли! Очки: {score}, Час: {time:mm\\:ss}"
+                : $"Ви програли! Очки: {score}, Час: {time:mm\\:ss}";
+        }
         protected void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

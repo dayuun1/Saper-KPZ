@@ -12,15 +12,13 @@
     <Window.Resources>
         <local1:CellToImageConverter x:Key="CellToImageConverter"/>
         <local1:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
-        <local1:BoolToWinLoseMessage x:Key="BoolToWinLoseMessage"/>
+        <local1:BoolToVisConverter x:Key="BoolToVisConverter"/>
     </Window.Resources>
     <DockPanel>
             <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
                 <TextBlock Text="Score:" FontSize="20" Margin="0,0,5,0"/>
-                <TextBlock Text="{Binding Score}" FontSize="20" Foreground="Blue"/>
-                <Button Content="Підказка" Command="{Binding ShowHintCommand}" Margin="20,0"/>
-                <Button Content="Бомба" Command="{Binding ShowBombCommand}" Margin="5,0"/>
-                <Button Content="Безпечно" Command="{Binding SafeClickCommand}" Margin="5,0"/>
+            <TextBlock Text="{Binding Score}" FontSize="20" Foreground="Blue"/>
+            <Button Content="Безкоштовна перевірка" Command="{Binding SafeClickCommand}" Margin="5,0"/>
             </StackPanel>
         <Grid DockPanel.Dock="Top" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <ItemsControl ItemsSource="{Binding Cells}">
@@ -48,6 +46,7 @@
                                         <Style TargetType="Image">
                                             <Setter Property="Visibility" Value="Collapsed"/>
                                             <Style.Triggers>
+
                                                 <DataTrigger Binding="{Binding IsFlagged}" Value="True">
                                                     <Setter Property="Visibility" Value="Visible"/>
                                                 </DataTrigger>
@@ -88,8 +87,13 @@
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
+            <Border Background="#80000000" Visibility="{Binding IsGameOver, Converter={StaticResource BoolToVisConverter}}">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
+                    <TextBlock Text="{Binding GameResultMessage}" FontSize="18" FontWeight="Bold" TextAlignment="Center" Margin="0 0 0 10"/>
+                    <Button Content="Закрити" Width="100" />
+                </StackPanel>
+            </Border>
         </Grid>
-        <TextBlock DockPanel.Dock="Bottom" Text="{Binding IsGameOver, Converter={StaticResource BoolToWinLoseMessage}}"
-                   FontSize="24" Foreground="DarkRed" HorizontalAlignment="Center" Margin="10"/>
-        </DockPanel>
+    </DockPanel>
+    
 </Window>
