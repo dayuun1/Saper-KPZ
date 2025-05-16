@@ -54,27 +54,27 @@
 #### [Command Pattern](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/ViewModels/GameViewModel.cs#25-31) - I use this pattern to provide communication between the Model and the ViewModel.
 
 ### Programming Principles
-####[DRY](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#54-57)
-####[YAGNI (You Aren’t Gonna Need It) — the project does not contain redundant code: all classes, methods, and functions have a specific purpose and are actually used.
-####[Single Responsibility Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-97) 
-####[Open/Closed Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#10)
-####[Dependency Inversion Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#17-22)
-####[Interface Segregation Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/IDifficultyState.cs#9-14)
+ * [DRY](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#54-57)
+ * YAGNI (You Aren’t Gonna Need It) — the project does not contain redundant code: all classes, methods, and functions have a specific purpose and are actually used.
+ * Single Responsibility Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-97) 
+ * Open/Closed Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#10)
+ * Dependency Inversion Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#17-22)
+ * Interface Segregation Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/IDifficultyState.cs#9-14)
 
 ### Refactoring Techniques
-####[Replace Magic Number](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/HardState.cs#13)
-####[Extract Interface](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/IDifficultyState.cs#9-14)
-####[Encapsulate Field](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/ViewModels/MenuViewModel.cs#26-67)
-####[Extract Method](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#99-119)
-####[Extract Class](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-69)
-####[Replace Conditional with Polymorphism](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#31)
+ * Replace Magic Number](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/HardState.cs#13)
+ * Extract Interface](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/IDifficultyState.cs#9-14)
+ * Encapsulate Field](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/ViewModels/MenuViewModel.cs#26-67)
+ * Extract Method](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#99-119)
+ * Extract Class](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-69)
+ * Replace Conditional with Polymorphism](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#31)
 
 ### How to launch
-1.Clone the repository to your computer 
-2.Make sure you have the correct version of the .NET SDK installed to run the project.
-3.Make sure you have SQL Server installed and running locally to work with the database.
-4.Open the project in the command line or in the IDE.
-5.Run the project via the dotnet run command or the run button in the IDE.
+ * Clone the repository to your computer 
+ * Make sure you have the correct version of the .NET SDK installed to run the project.
+ * Make sure you have SQL Server installed and running locally to work with the database.
+ * Open the project in the command line or in the IDE.
+ * Run the project via the dotnet run command or the run button in the IDE.
 
 
 
