@@ -107,8 +107,6 @@ namespace Saper.ViewModels
             {
                 Mediator.PageId = 2;
                 User user = Database.Users.Find(Mediator.UserId);
-                Mediator.IsMuted = IsMuted;
-                user.IsSoundMuted = IsMuted;
                 Database.SaveChanges();
                 _windowService.OpenWindow();
             });
@@ -138,37 +136,6 @@ namespace Saper.ViewModels
 
             InitializeCells();
         }
-
-        private bool _isMuted;
-        public bool IsMuted
-        {
-            get => _isMuted;
-            set
-            {
-                if (_isMuted)
-                {
-                    MutedIcon = "../Images/notmuted.jpg";
-                }
-                else
-                {
-                    MutedIcon = "../Images/muted.jpg";
-                }
-                _isMuted = value;
-                OnPropertyChanged(nameof(IsMuted));
-            }
-        }
-
-        private string _mutedIcon = "../Images/notmuted";
-        public string MutedIcon
-        {
-            get => _mutedIcon;
-            set
-            {
-                _mutedIcon = value;
-                OnPropertyChanged(nameof(MutedIcon));
-            }
-        }
-
 
         private void InitializeCells()
         {
@@ -219,6 +186,15 @@ namespace Saper.ViewModels
             GameResultMessage = isWin
                 ? $"Ви перемогли! Очки: {score}, Час: {time:mm\\:ss}"
                 : $"Ви програли! Очки: {score}, Час: {time:mm\\:ss}";
+
+            Database.GameResults.Add(new GameResult
+            {
+                Score = score,
+                IsWin = isWin,
+                TimeSpent = time,
+                UserId = Mediator.UserId,
+                Difficulty = Mediator.Difficulty
+            });
         }
 
 

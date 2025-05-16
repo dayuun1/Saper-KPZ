@@ -22,59 +22,14 @@ namespace Saper.Views
     /// </summary>
     public partial class MenuWindow : Window
     {
-        private MediaPlayer _mediaPlayer;
         public MenuWindow()
         {
             var windowService = new WindowService();
             var mainWindowService = new MainWindowService();
             DataContext = new MenuViewModel(windowService, mainWindowService);
 
-            string executableFilePath = Assembly.GetExecutingAssembly().Location;
-            string executableDirectoryPath = System.IO.Path.GetDirectoryName(executableFilePath);
-            string audioFilePath = System.IO.Path.Combine(executableDirectoryPath, "Music/videoplayback.m4a");
-
-            _mediaPlayer = new MediaPlayer();
-            _mediaPlayer.MediaEnded += Media_Ended;
-            _mediaPlayer.Close();
-            _mediaPlayer.Open(new Uri(audioFilePath));
-            _mediaPlayer.Volume = 0.10;
-
             InitializeComponent();
 
-            _mediaPlayer.Play();
-        }
-        private void Media_Ended(object sender, EventArgs e)
-        {
-            _mediaPlayer.Position = TimeSpan.FromMilliseconds(1);
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _mediaPlayer.Close();
-        }
-
-        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
-        {
-            _mediaPlayer.IsMuted = true;
-        }
-
-        private void ToggleButton_Unchecked(object sender, RoutedEventArgs e)
-        {
-            _mediaPlayer.IsMuted = false;
-        }
-
-        private void ButtonVolumeUp_Click(object sender, RoutedEventArgs e)
-        {
-            if (_mediaPlayer.Volume < 1)
-            {
-                _mediaPlayer.Volume += 0.05;
-            }
-        }
-        private void ButtonVolumeDown_Click(object sender, RoutedEventArgs e)
-        {
-            if (_mediaPlayer.Volume > 0)
-            {
-                _mediaPlayer.Volume -= 0.05;
-            }
         }
 
     }

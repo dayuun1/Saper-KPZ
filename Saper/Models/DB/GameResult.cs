@@ -12,6 +12,7 @@ namespace Saper.Models.DB
         public int Score { get; set; }
         public bool IsWin { get; set; }
         public TimeSpan TimeSpent { get; set; }
+        public string Difficulty { get; set; }
 
         public int UserId { get; set; }
         public User User { get; set; } = null!;

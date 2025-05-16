@@ -90,37 +90,40 @@ namespace Saper.ViewModels
                 (StartCommand as RelayCommand)?.RaiseCanExecuteChanged();
             }
         }
-
-        private bool _isMuted;
-        public bool IsMuted
+        private bool _isWin;
+        public bool IsWin
         {
-            get => _isMuted;
+            get => _isWin;
             set
             {
-                if (_isMuted)
-                {
-                    MutedIcon = "../Images/notmuted.jpg";
-                }
-                else
-                {
-                    MutedIcon = "../Images/muted.jpg";
-                }
-                _isMuted = value;
-                OnPropertyChanged(nameof(IsMuted));
+                _isWin = value;
+                OnPropertyChanged(nameof(IsWin));
             }
         }
 
-        private string _mutedIcon = "../Images/notmuted";
-        public string MutedIcon
+        private string _score;
+        public string Score
         {
-            get => _mutedIcon;
+            get => _score;
             set
             {
-                _mutedIcon = value;
-                OnPropertyChanged(nameof(MutedIcon));
+                _score = value;
+                OnPropertyChanged(nameof(Score));
             }
         }
-        
+
+
+        private TimeSpan _timeSpent;
+        public TimeSpan TimeSpent
+        {
+            get => _timeSpent;
+            set
+            {
+                _timeSpent = value;
+                OnPropertyChanged(nameof(TimeSpent));
+            }
+        }
+
         private int _pageNum;
         public List<GameResult> GameResultsList { get; set; } = new();
         public bool[] Pages { get; set; }
@@ -132,7 +135,6 @@ namespace Saper.ViewModels
             Pages = [true, false];
             PageVisibility = [false, false, false, false, false, false];
             PageVisibility[Mediator.PageId] = true;
-            IsMuted = Mediator.IsMuted;
             Mediator.PageId = 0;
             Login = Mediator.Login;
             GameResultsList = new();
@@ -164,9 +166,7 @@ namespace Saper.ViewModels
                     Mediator.Columns = size;
                     Mediator.Difficulty = Difficulty;
 
-                    Mediator.IsMuted = IsMuted;
                     var user = _dataBase.Users.Find(Mediator.UserId);
-                    user.IsSoundMuted = IsMuted;
                     _dataBase.SaveChanges();
 
                     _mainWindowService.OpenWindow(); 
@@ -190,7 +190,6 @@ namespace Saper.ViewModels
                 Mediator.Login = user.Login;
                 Mediator.UserId = user.Id;
                 Mediator.IsMuted = user.IsSoundMuted;
-                IsMuted = user.IsSoundMuted;
                 GameResultsList = _dataBase.GameResults.Where(u => u.UserId == Mediator.UserId).ToList();
                 OnPropertyChanged(nameof(GameResultsList));
                 OnPropertyChanged(nameof(PageVisibility));
@@ -216,7 +215,6 @@ namespace Saper.ViewModels
                 PageVisibility[2] = true;
                 Help = "";
                 GameResultsList = new();
-                IsMuted = false;
                 Mediator.Login = _dataBase.Users.FirstOrDefault(u => u.Login == Login.Trim()).Login;
                 Mediator.IsMuted = false;
                 Mediator.UserId = _dataBase.Users.FirstOrDefault(u => u.Login == Login.Trim()).Id;
