@@ -41,9 +41,7 @@ namespace Saper.Models.DifficultyState
 
         public void SetHints()
         {
-            _game.ShowLowestMineCell = 0;
-            _game.ShowMine = 1;
-            _game.SafeClick = 1;
+            _game.SafeClick = 2;
         }
     }
 }

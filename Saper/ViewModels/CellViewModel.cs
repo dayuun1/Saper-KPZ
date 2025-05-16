@@ -56,17 +56,6 @@ namespace Saper.ViewModels
             }
         }
 
-        private bool _isHighlighted;
-        public bool IsHighlighted
-        {
-            get { return _isHighlighted; }
-            set
-            {
-                _isHighlighted = value;
-                OnPropertyChanged(nameof(IsHighlighted));
-            }
-        }
-
         public CellViewModel(int row, int column)
         {
             Row = row;

@@ -127,6 +127,5 @@ namespace Saper.Models
             MineCount = mineCount;
             CellsToOpen = cellsToOpen;
         }
-
     }
 }

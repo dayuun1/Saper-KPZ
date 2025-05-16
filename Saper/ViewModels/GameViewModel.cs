@@ -19,13 +19,11 @@ namespace Saper.ViewModels
         public ObservableCollection<CellViewModel> Cells { get; }
 
         public ICommand CellClickCommand { get; }
-        public ICommand ShowHintCommand { get; }
-        public ICommand ShowBombCommand { get; }
         public ICommand SafeClickCommand { get; }
         public ICommand ToggleFlagCommand { get; }
+        public ICommand RestartGameCommand { get; }
 
         public int Score => _gameManager.Score;
-        public bool IsGameOver => _gameManager.IsEnd;
         public bool IsWin => _gameManager.IsWin;
         public int Rows => _gameManager.Rows;
         public int Columns => _gameManager.Columns;
@@ -33,7 +31,7 @@ namespace Saper.ViewModels
         public GameViewModel(GameManager gameManager)
         {
             _gameManager = gameManager;
-
+            gameManager.GameEnded += OnGameEnded;
             Cells = new ObservableCollection<CellViewModel>();
 
             CellClickCommand = new RelayCommand(param =>
@@ -68,23 +66,14 @@ namespace Saper.ViewModels
                 }
             });
 
-            ShowHintCommand = new RelayCommand(param =>
-            {
-                _gameManager.ShowLowestMineCellHint();
-            });
-
-            ShowBombCommand = new RelayCommand(param =>
-            {
-                _gameManager.ShowBombHint();
-            });
-
             SafeClickCommand = new RelayCommand(param =>
             {
                 _gameManager.SafeClickHint();
             });
+            RestartGameCommand = new RelayCommand(param => RestartGame());
             _gameManager.Rows = 10;
             _gameManager.Columns = 10;
-            _gameManager.SetDifficulty(new HardState(_gameManager));
+            _gameManager.SetDifficulty(new IntermediateState(_gameManager));
             _gameManager.StartGame(); 
 
             InitializeCells();
@@ -108,7 +97,36 @@ namespace Saper.ViewModels
                 }
             }
         }
+        public void RestartGame()
+        {
+            _gameManager.RestartGame();
+            InitializeCells();
+            IsGameOver = false;
+            GameResultMessage = "";
+            OnPropertyChanged(nameof(Score));
+            OnPropertyChanged(nameof(IsGameOver));
+            OnPropertyChanged(nameof(IsWin));
+        }
+        private bool _isGameOver;
+        public bool IsGameOver
+        {
+            get => _isGameOver;
+            set { _isGameOver = value; OnPropertyChanged(nameof(IsGameOver)); }
+        }
 
+        private string _gameResultMessage = "";
+        public string GameResultMessage
+        {
+            get => _gameResultMessage;
+            set { _gameResultMessage = value; OnPropertyChanged(nameof(GameResultMessage)); }
+        }
+        private void OnGameEnded(bool isWin, int score, TimeSpan time)
+        {
+            IsGameOver = true;
+            GameResultMessage = isWin
+                ? $"Ви перемогли! Очки: {score}, Час: {time:mm\\:ss}"
+                : $"Ви програли! Очки: {score}, Час: {time:mm\\:ss}";
+        }
         protected void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
