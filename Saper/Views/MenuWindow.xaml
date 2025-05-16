@@ -3,83 +3,184 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Saper" 
+        xmlns:local="clr-namespace:Saper.ViewModels" d:DataContext="{d:DesignInstance Type=local:MenuViewModel}"
         xmlns:local1="clr-namespace:Saper.Views" 
         xmlns:converters="clr-namespace:Saper.Converters"
         mc:Ignorable="d"
-        Title="MenuWindow" Height="1080" Width="1920"
+        Title="MenuWindow" Height="1080" Width="1920" Background="#0e4a3c"
         WindowState="Maximized" WindowStyle="None">
+    
     <local1:DpiDecorator>
-    <Grid>
-        <!--
-            <Image Source="../Images/Background/Back4.jpg" Width="1920" Height="1080" Stretch="Fill"/>
-            <Image Source="../Images/Icons/LOGOen.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1300" Margin="0,75,0,0"/>-->
-        <TextBlock Text="{Binding Help}" Margin="0 200 0 0" FontSize="32" Width="1920" TextAlignment="Center" Foreground="Red"/>
-
-        <Canvas Visibility="{Binding PageVisibility[0], Converter={StaticResource BoolToVis}}" Width="500" Height="500">
-            <Rectangle Fill="#A42a2c" Width="500" Height="500" Opacity="0.8" RadiusX="100" RadiusY="100"/>
-            <DockPanel Canvas.Left="40" Canvas.Top="60">
-                <Label FontSize="28" Width="150" Foreground="#F1ef42" FontFamily="Arial">Ім'я:</Label>
-                <TextBox FontSize="34" FontFamily="{StaticResource IrpinType}" Width="250" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="25"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </DockPanel>
-            <DockPanel Canvas.Left="40" Canvas.Top="160">
-                <Label FontSize="28" Width="150" Foreground="#F1ef42" FontFamily="Arial">Пароль:</Label>
-                <TextBox FontSize="28" Width="250" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}">
-                    <TextBox.Resources>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="25"/>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
-            </DockPanel>
-            <Button Canvas.Left="100" Canvas.Top="265" Width="300" Foreground="#F1ef42" Style="{StaticResource UnavailableButton}" Content="Увійти" Command="{Binding LogInCommand}"/>
-            <StackPanel Canvas.Left="60" Canvas.Top="360">
-                <Label FontSize="26" Foreground="#4B852B" FontFamily="Arial">Немає облікового запису?</Label>
-                <TextBlock FontSize="26" TextAlignment="Center" Foreground="#FF1946B5" TextDecorations="Underline" Text="Зареєструватися">
-                    <TextBlock.InputBindings>
-                        <MouseBinding Gesture="LeftClick" Command="{Binding GoCommand}" CommandParameter="1"/>
-                    </TextBlock.InputBindings>
-                </TextBlock>
+        <Grid>
+            <TextBlock Text="{Binding Help}" Margin="0 900 0 0" FontSize="46" FontFamily="{StaticResource IrpinType}" Width="1920" TextAlignment="Center" Foreground="Black"/>
+            <Canvas Visibility="{Binding PageVisibility[0], Converter={StaticResource BoolToVis}}" Width="500" Height="500">
+                <Rectangle Fill="#A42a2c" Width="500" Height="500" Opacity="0.8" RadiusX="100" RadiusY="100"/>
+                <DockPanel Canvas.Left="40" Canvas.Top="60" LastChildFill="False">
+                    <Label FontSize="28" DockPanel.Dock="Left" Width="150" Foreground="#F1ef42" FontFamily="{StaticResource IrpinType}">Ім'я:</Label>
+                    <TextBox FontSize="34" FontFamily="{StaticResource IrpinType}" DockPanel.Dock="Right" Width="250" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </DockPanel>
+                <DockPanel Canvas.Left="40" Canvas.Top="160" LastChildFill="False">
+                    <Label FontSize="28" DockPanel.Dock="Left" Width="150" Foreground="#F1ef42" FontFamily="{StaticResource IrpinType}">Пароль:</Label>
+                    <TextBox FontSize="34" DockPanel.Dock="Right" Width="250" FontFamily="{StaticResource IrpinType}" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </DockPanel>
+                <Button Canvas.Left="100" Canvas.Top="265" Width="300" Foreground="#F1ef42" Style="{StaticResource UnavailableButton}" Content="Увійти" Command="{Binding LogInCommand}"/>
+                <StackPanel Canvas.Left="15" Canvas.Top="360">
+                    <Label FontSize="26" Foreground="#F1ef42" Margin="40 0 0 0" FontFamily="{StaticResource IrpinType}">Якщо не маєш облікового запису</Label>
+                    <TextBlock FontSize="26" TextAlignment="Center" Margin="0 25" FontFamily="{StaticResource IrpinType}" Foreground="Red" Text="Зареєструйся!">
+                        <TextBlock.InputBindings>
+                            <MouseBinding Gesture="LeftClick" Command="{Binding GoCommand}" CommandParameter="1"/>
+                        </TextBlock.InputBindings>
+                    </TextBlock>
+                </StackPanel>
+                <Canvas.InputBindings>
+                    <KeyBinding Key="Esc" Command="{Binding CloseWindowCommand}"/>
+                    <KeyBinding Key="Enter" Command="{Binding LogInCommand}"/>
+                </Canvas.InputBindings>
+            </Canvas>
+            <Canvas Visibility="{Binding PageVisibility[1], Converter={StaticResource BoolToVis}}" Width="650" Height="400">
+                <Rectangle Fill="#A42a2c" Width="650" Height="480" Opacity="0.8" RadiusX="100" RadiusY="100"/>
+                <DockPanel Canvas.Left="225" Canvas.Top="30" LastChildFill="False" Width="570">
+                    <Label FontSize="30" Foreground="#4892CB" FontFamily="{StaticResource IrpinType}">Реєстрація</Label>
+                </DockPanel>
+                <DockPanel Canvas.Left="30" Canvas.Top="100" LastChildFill="False" Width="570">
+                    <Label FontSize="28" DockPanel.Dock="Left" Width="300" Foreground="#F1ef42" FontFamily="{StaticResource IrpinType}">Вигадайте ім'я:</Label>
+                    <TextBox FontSize="34" DockPanel.Dock="Right" Width="250" FontFamily="{StaticResource IrpinType}" Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </DockPanel>
+                <DockPanel Canvas.Left="30" Canvas.Top="200" Width="570" LastChildFill="False">
+                    <Label FontSize="28" DockPanel.Dock="Left" Width="310" Foreground="#F1ef42" FontFamily="{StaticResource IrpinType}">Вигадайте пароль:</Label>
+                    <TextBox FontSize="34" DockPanel.Dock="Right" Width="250" FontFamily="{StaticResource IrpinType}" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="5"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </DockPanel>
+                <Button Canvas.Left="180" Canvas.Top="280" Width="300" Style="{StaticResource UnavailableButton}" Content="Зареєструватись" Command="{Binding RegisterCommand}"/>
+                <Button Canvas.Left="180" Canvas.Top="380" Width="300" Style="{StaticResource UnavailableButton}" Content="Назад" Command="{Binding GoCommand}" CommandParameter="0"/>
+                <Canvas.InputBindings>
+                    <KeyBinding Key="Esc" Command="{Binding GoCommand}" CommandParameter="0"/>
+                    <KeyBinding Key="Enter" Command="{Binding RegisterCommand}"/>
+                </Canvas.InputBindings>
+            </Canvas>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding PageVisibility[2], Converter={StaticResource BoolToVis}}" Margin="0,150,0,0">
+                <Button Content="Грати" Style="{StaticResource MenuButton}" Command="{Binding GoCommand}" CommandParameter="3"/>
+                <Button Content="Налаштування" Style="{StaticResource MenuButton}" CommandParameter="5"/>
+                <Button Content="Історія ігор" Style="{StaticResource MenuButton}" CommandParameter="4"/>
+                <Button Content="Змінити акаунт" Style="{StaticResource MenuButton}" CommandParameter="0"/>
+                <Button Content="Вийти" Style="{StaticResource MenuButton}" Background="#A42a2c" Command="{Binding CloseWindowCommand}"/>
             </StackPanel>
-            <Canvas.InputBindings>
-                <KeyBinding Key="Esc" Command="{Binding CloseWindowCommand}"/>
-                <KeyBinding Key="Enter" Command="{Binding LogInCommand}"/>
-            </Canvas.InputBindings>
-        </Canvas>
-
-        <Canvas Visibility="{Binding PageVisibility[1], Converter={StaticResource BoolToVis}}" Width="600" Height="400">
-            <Rectangle Fill="#ABBFAA" Width="600" Height="400" Opacity="0.6" RadiusX="35" RadiusY="35"/>
-
-            <Grid>
-                <Rectangle Fill="#ABBFAA" Width="1050" Margin="0 30" Opacity="0.6" RadiusX="35" RadiusY="35"/>
-                <DataGrid ColumnHeaderHeight="64" Margin="0 50" HeadersVisibility="Column" Width="1024" Background="Transparent" RowBackground="Transparent"
-                              AutoGenerateColumns="False" FontSize="32"  IsReadOnly="True" GridLinesVisibility="Vertical">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Width="250" Header="Перший гравець" />
-                        <DataGridTextColumn Width="235" Header="Другий гравець" />
-                        <DataGridTextColumn Width="215" Header="Переможець"/>
-                        <DataGridTextColumn Width="305" Header="Вид перемоги" />
-                    </DataGrid.Columns>
-                    <DataGrid.Resources>
-                        <Style TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource {x:Type DataGridColumnHeader}}">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                            <Setter Property="BorderThickness" Value="0,0,1,0"/>
-                            <Setter Property="BorderBrush" Value="Black"/>
+            <Canvas Visibility="{Binding PageVisibility[3], Converter={StaticResource BoolToVis}}" Width="1000" Height="420">
+                <Rectangle Fill="#A42a2c" Width="1000" Height="420" Opacity="0.8" RadiusX="35" RadiusY="35"/>
+                <DockPanel Canvas.Left="20" Canvas.Top="40" LastChildFill="False">
+                    <Label FontSize="32" DockPanel.Dock="Left" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42" Width="550">Введіть розімр поля (10-50):</Label>
+                    <TextBox FontSize="34" DockPanel.Dock="Right" FontFamily="{StaticResource IrpinType}" Width="400" Text="{Binding FieldSize, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </DockPanel>
+                <DockPanel Canvas.Left="20" Canvas.Top="135" LastChildFill="False">
+                    <Label FontSize="32" DockPanel.Dock="Left" Width="550" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42" >Оберіть складність:</Label>
+                    <TextBox FontSize="34" DockPanel.Dock="Right" Width="400" FontFamily="{StaticResource IrpinType}" Text="{Binding Difficulty, UpdateSourceTrigger=PropertyChanged}">
+                        <TextBox.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="15"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </DockPanel>
+                <Button Canvas.Left="300" Canvas.Top="220" Width="400" Style="{StaticResource UnavailableButton}" Content="Підтвердити" Click="Button_Click" Command="{Binding StartCommand}" CommandParameter="1"/>
+                <Button Canvas.Left="300" Canvas.Top="320" Width="400" Style="{StaticResource UnavailableButton}" Content="Назад" Command="{Binding GoCommand}" CommandParameter="2"/>
+                <Canvas.InputBindings>
+                    <KeyBinding Key="Esc" Command="{Binding GoCommand}" CommandParameter="2"/>
+                    <KeyBinding Key="Enter" Command="{Binding StartCommand}" CommandParameter="1"/>
+                </Canvas.InputBindings>
+            </Canvas>
+            <Canvas Width="1000" Height="700" Visibility="{Binding PageVisibility[5], Converter={StaticResource BoolToVis}}">
+                <Rectangle Fill="#A42a2c" Margin="0 50 0 0" Width="1000" Height="700" Opacity="0.8" RadiusX="35" RadiusY="35"/>
+                <Button Canvas.Left="0" Canvas.Top="770" Width="1000" Content="Назад" Style="{StaticResource MenuButton}" CommandParameter="2"/>
+                <Label FontSize="40" Canvas.Top="70" Canvas.Left="450" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42">Звук</Label>
+                <Label FontSize="40" Canvas.Top="270" Canvas.Left="380" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42">Управління</Label>
+                <ToggleButton Canvas.Left="460" Canvas.Top="150" IsChecked="{Binding IsMuted}" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked">
+                    <ToggleButton.Style>
+                        <Style TargetType="ToggleButton">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Image Source="{Binding MutedIcon}" Width="50" />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
-                    </DataGrid.Resources>
-                </DataGrid>
+                    </ToggleButton.Style>
+                    <ToggleButton.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </ToggleButton.LayoutTransform>
+                </ToggleButton>
+                <Button Canvas.Left="580" Canvas.Top="170" Background="Transparent" BorderBrush="Transparent" Click="ButtonVolumeUp_Click">
+                    <Button.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </Button.LayoutTransform>
+                </Button>
+                <Button Canvas.Left="370" Canvas.Top="170" Background="Transparent" BorderBrush="Transparent" Click="ButtonVolumeDown_Click">
+                    <Button.LayoutTransform>
+                        <ScaleTransform ScaleX="2" ScaleY="2"/>
+                    </Button.LayoutTransform>
+                </Button>
+            </Canvas>
+            
+            <Grid Visibility="{Binding PageVisibility[4], Converter={StaticResource BoolToVis}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="150"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="1" Content="Назад" Style="{StaticResource MenuButton}" Margin="0 0 0 0" Width="1800" Command="{Binding GoCommand}" CommandParameter="2"/>
+
+                <Grid Grid.Row="0">
+                    <Rectangle Fill="#A42a2c" Width="1800"  Margin="0 230 0 40" Opacity="0.7" RadiusX="35" RadiusY="35"/>
+                    <DataGrid ColumnHeaderHeight="70" Margin="0 260 0 70" HeadersVisibility="Column" BorderBrush="Black" Width="1800" Background="Transparent" Foreground="White" FontFamily="{StaticResource IrpinType}" RowBackground="Transparent" AutoGenerateColumns="False" FontSize="32" ItemsSource="{Binding GameResultsList}" IsReadOnly="True" GridLinesVisibility="All">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Width="410" Header="Картограф №1" Binding="{Binding FirstPlayerName}"/>
+                            <DataGridTextColumn Width="410" Header="Картограф №2/режим" Binding="{Binding SecondPlayerName}"/>
+                            <DataGridTextColumn Width="200" Header="Бали №1" Binding="{Binding FirstPlayerPoints}"/>
+                            <DataGridTextColumn Width="200" Header="Бали №2*" Binding="{Binding SecondPlayerPoints}"/>
+                            <DataGridTextColumn Width="578" Header="Переможець/ранг" Binding="{Binding Winner}"/>
+                        </DataGrid.Columns>
+                        <DataGrid.Resources>
+                            <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,0"></Setter>
+                                <Setter Property="BorderBrush" Value="Black"/>
+                            </Style>
+                        </DataGrid.Resources>
+                    </DataGrid>
+                </Grid>
+                <Grid.InputBindings>
+                    <KeyBinding Key="Esc" Command="{Binding GoCommand}" CommandParameter="2"/>
+                </Grid.InputBindings>
             </Grid>
-            <Canvas.InputBindings>
-                <KeyBinding Key="Esc" Command="{Binding GoCommand}" CommandParameter="2"/>
-            </Canvas.InputBindings>
-        </Canvas>
-    </Grid>
+        </Grid>
     </local1:DpiDecorator>
 </Window>

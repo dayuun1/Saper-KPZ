@@ -21,10 +21,17 @@
     <None Remove="Images\9.png" />
     <None Remove="Images\closed.png" />
     <None Remove="Images\flag.png" />
-    <None Remove="Images\mine.png" />
+    <None Remove="Images\minus.jpg" />
+    <None Remove="Images\plus.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
   </ItemGroup>
 
@@ -41,7 +48,8 @@
     <Resource Include="Images\9.png" />
     <Resource Include="Images\closed.png" />
     <Resource Include="Images\flag.png" />
-    <Resource Include="Images\mine.png" />
+    <Resource Include="Images\minus.jpg" />
+    <Resource Include="Images\plus.jpg" />
   </ItemGroup>
 
 </Project>

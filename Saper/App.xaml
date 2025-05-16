@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Saper"
              xmlns:local1="clr-namespace:Saper.Converters"
-             StartupUri="Views/MainWindow.xaml">
+             StartupUri="Views/MenuWindow.xaml">
     <Application.Resources>
         <local1:InverseBooleanConverter x:Key="InverseBooleanConverter" />
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
@@ -13,10 +13,10 @@
             <Setter Property="Height" Value="30 "/>
             <Setter Property="FontSize" Value="36"/>
             <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontFamily" Value="{StaticResource IrpinType}"/>
         </Style>
         <Style TargetType="Button" x:Key="GameButton">
-            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontFamily" Value="{StaticResource IrpinType}"/>
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="Width" Value="350"/>
             <Setter Property="Height" Value="90"/>
@@ -29,9 +29,9 @@
                         <Border CornerRadius="20" BorderThickness="4" Padding="0" Background="{TemplateBinding Background}">
                             <Grid>
                                 <ContentPresenter x:Name="MyContentPresenter" 
-         Content="{TemplateBinding Content}"
-         HorizontalAlignment="Center" 
-         VerticalAlignment="Center" />
+     Content="{TemplateBinding Content}"
+     HorizontalAlignment="Center" 
+     VerticalAlignment="Center" />
                             </Grid>
                         </Border>
                     </ControlTemplate>
@@ -57,7 +57,7 @@
             <Setter Property="Command" Value="{Binding GoCommand}"/>
         </Style>
         <Style TargetType="Button" x:Key="UnavailableButton">
-            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontFamily" Value="{StaticResource IrpinType}"/>
             <Setter Property="OverridesDefaultStyle" Value="True"/>
             <Setter Property="FontSize" Value="24"/>
             <Setter Property="Width" Value="200"/>
@@ -69,9 +69,9 @@
                         <Border CornerRadius="20" BorderThickness="4" Padding="0" Background="{TemplateBinding Background}">
                             <Grid>
                                 <ContentPresenter x:Name="MyContentPresenter" 
-                    Content="{TemplateBinding Content}"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" />
+                Content="{TemplateBinding Content}"
+                HorizontalAlignment="Center" 
+                VerticalAlignment="Center" />
                             </Grid>
                         </Border>
                     </ControlTemplate>
@@ -79,7 +79,7 @@
             </Setter>
             <Style.Triggers>
                 <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="Background" Value="#FF747F4B"/>
+                    <Setter Property="Background" Value="#4c2c24"/>
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Button.Effect">
@@ -91,11 +91,14 @@
             </Style.Triggers>
         </Style>
         <Style TargetType="Border" x:Key="ResourceBorder">
-            <Setter Property="Background" Value="#eedd8e"/>
-            <Setter Property="BorderThickness" Value="5"/>
-            <Setter Property="BorderBrush" Value="#bda55d"/>
-            <Setter Property="CornerRadius" Value="20"/>
-            <Setter Property="Margin" Value="0 0 4 0"/>
-        </Style>
-    </Application.Resources>
+            
+        <Setter Property="Background" Value="#eedd8e"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="BorderBrush" Value="#bda55d"/>
+        <Setter Property="CornerRadius" Value="20"/>
+        <Setter Property="Margin" Value="0 0 4 0"/>
+    </Style>
+</Application.Resources>
+
+
 </Application>
