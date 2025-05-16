@@ -55,7 +55,7 @@
 
 ### Programming Principles
  * [DRY](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#54-57)
- * [YAGNI (You Aren’t Gonna Need It) — the project does not contain redundant code: all classes, methods, and functions have a specific purpose and are actually used.
+ * YAGNI (You Aren’t Gonna Need It) — the project does not contain redundant code: all classes, methods, and functions have a specific purpose and are actually used.
  * [Single Responsibility Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-97) 
  * [Open/Closed Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#10)
  * [Dependency Inversion Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#17-22)
