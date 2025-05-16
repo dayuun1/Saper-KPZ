@@ -9,9 +9,12 @@
         mc:Ignorable="d"
         Title="MenuWindow" Height="1080" Width="1920" Background="#0e4a3c"
         WindowState="Maximized" WindowStyle="None">
-    
+    <Window.Resources>
+        <converters:BoolToVictoryConverter x:Key="BoolToVictoryConverter"/>
+    </Window.Resources>
     <local1:DpiDecorator>
         <Grid>
+            <Image Source="../Images/logo.png" HorizontalAlignment="Center" VerticalAlignment="Top" Width="250" Margin="0,15,0,0"></Image>
             <TextBlock Text="{Binding Help}" Margin="0 900 0 0" FontSize="46" FontFamily="{StaticResource IrpinType}" Width="1920" TextAlignment="Center" Foreground="Black"/>
             <Canvas Visibility="{Binding PageVisibility[0], Converter={StaticResource BoolToVis}}" Width="500" Height="500">
                 <Rectangle Fill="#A42a2c" Width="500" Height="500" Opacity="0.8" RadiusX="100" RadiusY="100"/>
@@ -83,7 +86,6 @@
             </Canvas>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Visibility="{Binding PageVisibility[2], Converter={StaticResource BoolToVis}}" Margin="0,150,0,0">
                 <Button Content="Грати" Style="{StaticResource MenuButton}" Command="{Binding GoCommand}" CommandParameter="3"/>
-                <Button Content="Налаштування" Style="{StaticResource MenuButton}" CommandParameter="5"/>
                 <Button Content="Історія ігор" Style="{StaticResource MenuButton}" CommandParameter="4"/>
                 <Button Content="Змінити акаунт" Style="{StaticResource MenuButton}" CommandParameter="0"/>
                 <Button Content="Вийти" Style="{StaticResource MenuButton}" Background="#A42a2c" Command="{Binding CloseWindowCommand}"/>
@@ -110,46 +112,14 @@
                         </TextBox.Resources>
                     </TextBox>
                 </DockPanel>
-                <Button Canvas.Left="300" Canvas.Top="220" Width="400" Style="{StaticResource UnavailableButton}" Content="Підтвердити" Click="Button_Click" Command="{Binding StartCommand}" CommandParameter="1"/>
+                <Button Canvas.Left="300" Canvas.Top="220" Width="400" Style="{StaticResource UnavailableButton}" Content="Підтвердити"  Command="{Binding StartCommand}" CommandParameter="1"/>
                 <Button Canvas.Left="300" Canvas.Top="320" Width="400" Style="{StaticResource UnavailableButton}" Content="Назад" Command="{Binding GoCommand}" CommandParameter="2"/>
                 <Canvas.InputBindings>
                     <KeyBinding Key="Esc" Command="{Binding GoCommand}" CommandParameter="2"/>
                     <KeyBinding Key="Enter" Command="{Binding StartCommand}" CommandParameter="1"/>
                 </Canvas.InputBindings>
             </Canvas>
-            <Canvas Width="1000" Height="700" Visibility="{Binding PageVisibility[5], Converter={StaticResource BoolToVis}}">
-                <Rectangle Fill="#A42a2c" Margin="0 50 0 0" Width="1000" Height="700" Opacity="0.8" RadiusX="35" RadiusY="35"/>
-                <Button Canvas.Left="0" Canvas.Top="770" Width="1000" Content="Назад" Style="{StaticResource MenuButton}" CommandParameter="2"/>
-                <Label FontSize="40" Canvas.Top="70" Canvas.Left="450" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42">Звук</Label>
-                <Label FontSize="40" Canvas.Top="270" Canvas.Left="380" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42">Управління</Label>
-                <ToggleButton Canvas.Left="460" Canvas.Top="150" IsChecked="{Binding IsMuted}" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked">
-                    <ToggleButton.Style>
-                        <Style TargetType="ToggleButton">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ToggleButton">
-                                        <Image Source="{Binding MutedIcon}" Width="50" />
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ToggleButton.Style>
-                    <ToggleButton.LayoutTransform>
-                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    </ToggleButton.LayoutTransform>
-                </ToggleButton>
-                <Button Canvas.Left="580" Canvas.Top="170" Background="Transparent" BorderBrush="Transparent" Click="ButtonVolumeUp_Click">
-                    <Button.LayoutTransform>
-                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    </Button.LayoutTransform>
-                </Button>
-                <Button Canvas.Left="370" Canvas.Top="170" Background="Transparent" BorderBrush="Transparent" Click="ButtonVolumeDown_Click">
-                    <Button.LayoutTransform>
-                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    </Button.LayoutTransform>
-                </Button>
-            </Canvas>
-            
+
             <Grid Visibility="{Binding PageVisibility[4], Converter={StaticResource BoolToVis}}">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -158,14 +128,13 @@
                 <Button Grid.Row="1" Content="Назад" Style="{StaticResource MenuButton}" Margin="0 0 0 0" Width="1800" Command="{Binding GoCommand}" CommandParameter="2"/>
 
                 <Grid Grid.Row="0">
-                    <Rectangle Fill="#A42a2c" Width="1800"  Margin="0 230 0 40" Opacity="0.7" RadiusX="35" RadiusY="35"/>
-                    <DataGrid ColumnHeaderHeight="70" Margin="0 260 0 70" HeadersVisibility="Column" BorderBrush="Black" Width="1800" Background="Transparent" Foreground="White" FontFamily="{StaticResource IrpinType}" RowBackground="Transparent" AutoGenerateColumns="False" FontSize="32" ItemsSource="{Binding GameResultsList}" IsReadOnly="True" GridLinesVisibility="All">
+                    <Rectangle Fill="#A42a2c" Width="1020"  Margin="0 230 0 40" Opacity="0.7" RadiusX="35" RadiusY="35"/>
+                    <DataGrid ColumnHeaderHeight="70" Margin="0 260 0 70" HeadersVisibility="Column" BorderBrush="Black" Width="1000" Background="Transparent" Foreground="White" FontFamily="{StaticResource IrpinType}" RowBackground="Transparent" AutoGenerateColumns="False" FontSize="32" ItemsSource="{Binding GameResultsList}" IsReadOnly="True" GridLinesVisibility="All">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Width="410" Header="Картограф №1" Binding="{Binding FirstPlayerName}"/>
-                            <DataGridTextColumn Width="410" Header="Картограф №2/режим" Binding="{Binding SecondPlayerName}"/>
-                            <DataGridTextColumn Width="200" Header="Бали №1" Binding="{Binding FirstPlayerPoints}"/>
-                            <DataGridTextColumn Width="200" Header="Бали №2*" Binding="{Binding SecondPlayerPoints}"/>
-                            <DataGridTextColumn Width="578" Header="Переможець/ранг" Binding="{Binding Winner}"/>
+                            <DataGridTextColumn Width="250" Header="Перемога" Binding="{Binding IsWin, Converter={StaticResource BoolToVictoryConverter}}"/>
+                            <DataGridTextColumn Width="250" Header="Очки" Binding="{Binding Score}"/>
+                            <DataGridTextColumn Width="250" Header="Складність" Binding="{Binding Difficulty}"/>
+                            <DataGridTextColumn Width="250" Header="Витрачений час" Binding="{Binding TimeSpent}"/>
                         </DataGrid.Columns>
                         <DataGrid.Resources>
                             <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">

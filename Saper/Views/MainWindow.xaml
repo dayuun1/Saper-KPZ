@@ -24,42 +24,9 @@
                 <Rectangle Fill="#4c2c24" Width="700" Height="550" Opacity="0.4" RadiusX="35" RadiusY="35"/>
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button Style="{StaticResource GameButton}" Background="#4892CB" Width="350" Height="100" Content="Назад" Margin="0 0 0 30" FontSize="32" Command="{Binding ChangeMenuViewCommand}"/>
-                    <Button Style="{StaticResource GameButton}" Background="#4892CB" Width="350" Height="100" Content="Налаштування" Margin="0 0 0 30" FontSize="32" Command="{Binding ShowSettingsCommand}"/>
-                    <Button Style="{StaticResource GameButton}" Background="#A42a2c" Width="350" Height="100" Content="Вийти" Margin="0 0 0 30" FontSize="32" Click="Button_Click" Command="{Binding QuitCommand}" />
+                    <Button Style="{StaticResource GameButton}" Background="#A42a2c" Width="350" Height="100" Content="Вийти" Margin="0 0 0 30" FontSize="32" Command="{Binding QuitCommand}" />
                 </StackPanel>
             </Grid>
-            <Canvas Width="1000" Height="700" Visibility="{Binding MenuSettingVisibility[1], Converter={StaticResource BoolToVis}}">
-                <Rectangle Fill="#A42a2c" Margin="0 50 0 0" Width="1000" Height="700" Opacity="0.8" RadiusX="35" RadiusY="35"/>
-                <Label FontSize="40" Canvas.Top="70" Canvas.Left="450" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42">Звук</Label>
-                <ToggleButton Canvas.Left="460" Canvas.Top="150" IsChecked="{Binding IsMuted}" Checked="ToggleButton_Checked" Unchecked="ToggleButton_Unchecked">
-                    <ToggleButton.Style>
-                        <Style TargetType="ToggleButton">
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ToggleButton">
-                                        <Image Source="{Binding MutedIcon}" Width="50" />
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ToggleButton.Style>
-                    <ToggleButton.LayoutTransform>
-                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    </ToggleButton.LayoutTransform>
-                </ToggleButton>
-                <Button Canvas.Left="580" Canvas.Top="170" Background="Transparent" BorderBrush="Transparent" Click="ButtonVolumeUp_Click">
-                    <Image  Width="30"/>
-                    <Button.LayoutTransform>
-                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    </Button.LayoutTransform>
-                </Button>
-                <Button Canvas.Left="370" Canvas.Top="170" Background="Transparent" BorderBrush="Transparent" Click="ButtonVolumeDown_Click">
-                    <Image  Width="30"/>
-                    <Button.LayoutTransform>
-                        <ScaleTransform ScaleX="2" ScaleY="2"/>
-                    </Button.LayoutTransform>
-                </Button>
-            </Canvas>
         </Grid>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
                 <TextBlock Text="Score:" FontSize="50" Margin="0,0,5,0"/>

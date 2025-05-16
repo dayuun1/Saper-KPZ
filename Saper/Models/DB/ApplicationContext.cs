@@ -9,7 +9,7 @@ namespace Saper.Models.DB
 {
     public class ApplicationContext : DbContext
     {
-        private const string _connectionString = "Data Source=Saper.db";
+        private const string _connectionString = "Data Source=Saper1.db";
 
         public DbSet<User> Users => Set<User>();
         public DbSet<GameResult> GameResults => Set<GameResult>();

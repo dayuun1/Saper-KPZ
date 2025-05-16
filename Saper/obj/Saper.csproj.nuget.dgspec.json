@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vonso\\source\\repos\\Saper2\\Saper-KPZ\\Saper\\Saper.csproj": {}
+    "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Saper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vonso\\source\\repos\\Saper2\\Saper-KPZ\\Saper\\Saper.csproj": {
+    "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Saper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vonso\\source\\repos\\Saper2\\Saper-KPZ\\Saper\\Saper.csproj",
+        "projectUniqueName": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Saper.csproj",
         "projectName": "Saper",
-        "projectPath": "C:\\Users\\vonso\\source\\repos\\Saper2\\Saper-KPZ\\Saper\\Saper.csproj",
+        "projectPath": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Saper.csproj",
         "packagesPath": "C:\\Users\\vonso\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vonso\\source\\repos\\Saper2\\Saper-KPZ\\Saper\\obj\\",
+        "outputPath": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
