@@ -55,19 +55,19 @@
 
 ### Programming Principles
  * [DRY](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#54-57)
- * YAGNI (You Aren’t Gonna Need It) — the project does not contain redundant code: all classes, methods, and functions have a specific purpose and are actually used.
- * Single Responsibility Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-97) 
- * Open/Closed Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#10)
- * Dependency Inversion Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#17-22)
- * Interface Segregation Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/IDifficultyState.cs#9-14)
+ * [YAGNI (You Aren’t Gonna Need It) — the project does not contain redundant code: all classes, methods, and functions have a specific purpose and are actually used.
+ * [Single Responsibility Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-97) 
+ * [Open/Closed Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#10)
+ * [Dependency Inversion Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#17-22)
+ * [Interface Segregation Principle](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/IDifficultyState.cs#9-14)
 
 ### Refactoring Techniques
- * Replace Magic Number](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/HardState.cs#13)
- * Extract Interface](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/IDifficultyState.cs#9-14)
- * Encapsulate Field](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/ViewModels/MenuViewModel.cs#26-67)
- * Extract Method](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#99-119)
- * Extract Class](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-69)
- * Replace Conditional with Polymorphism](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#31)
+ * [Replace Magic Number](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/HardState.cs#13)
+ * [Extract Interface](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/IDifficultyState.cs#9-14)
+ * [Encapsulate Field](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/ViewModels/MenuViewModel.cs#26-67)
+ * [Extract Method](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#99-119)
+ * [Extract Class](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#60-69)
+ * [Replace Conditional with Polymorphism](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/DifficultyState/BeginnerState.cs#31)
 
 ### How to launch
  * Clone the repository to your computer 
