@@ -25,7 +25,6 @@ namespace Saper.Models
         public void SetDifficulty(IDifficultyState difficulty)
         {
             DifficultyState = difficulty;
-            DifficultyState.SetHints();
             
         }
         public Stopwatch Stopwatch { get; private set; } = new Stopwatch();
@@ -33,6 +32,7 @@ namespace Saper.Models
         {
             Stopwatch.Restart();
             DifficultyState.GenerateMinefield();
+            DifficultyState.SetHints();
             OpenEdgeCells();
         }
 

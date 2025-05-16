@@ -52,14 +52,29 @@ namespace Saper.Views
             _mediaPlayer.Close();
         }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
         {
             _mediaPlayer.IsMuted = true;
         }
 
-        private void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        private void ToggleButton_Unchecked(object sender, RoutedEventArgs e)
         {
             _mediaPlayer.IsMuted = false;
+        }
+
+        private void ButtonVolumeUp_Click(object sender, RoutedEventArgs e)
+        {
+            if (_mediaPlayer.Volume < 1)
+            {
+                _mediaPlayer.Volume += 0.05;
+            }
+        }
+        private void ButtonVolumeDown_Click(object sender, RoutedEventArgs e)
+        {
+            if (_mediaPlayer.Volume > 0)
+            {
+                _mediaPlayer.Volume -= 0.05;
+            }
         }
 
     }
