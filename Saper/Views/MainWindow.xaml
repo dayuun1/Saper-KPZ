@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:Saper.ViewModels"
         xmlns:local1="clr-namespace:Saper.Converters"
         mc:Ignorable="d"
-        Title="GameView" Height="1080" Width="1920"
+        Title="GameView" Height="1080" Width="1920" Background="#0e4a3c"
         WindowState="Maximized" WindowStyle="None">
     <Window.Resources>
         <local1:CellToImageConverter x:Key="CellToImageConverter"/>
@@ -90,7 +90,7 @@
             <Border Background="#80000000" Visibility="{Binding IsGameOver, Converter={StaticResource BoolToVisConverter}}">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="White">
                     <TextBlock Text="{Binding GameResultMessage}" FontSize="18" FontWeight="Bold" TextAlignment="Center" Margin="0 0 0 10"/>
-                    <Button Content="Закрити" Width="100" />
+                    <Button Content="Заново" Width="100" Command="{Binding RestartGameCommand}" />
                 </StackPanel>
             </Border>
         </Grid>

@@ -100,37 +100,9 @@ namespace Saper.Models
                 EndGame(true);
                 return;
             }
-
-            if (AreAllMinesFlagged())
-            {
-                IsEnd = true;
-                IsWin = true;
-                Stopwatch.Stop();
-                EndGame(true);
-            }
-
             IsSafeClick = false;
         }
 
-        private bool AreAllMinesFlagged()
-        {
-            for (int i = 0; i < Rows; i++)
-            {
-                for (int j = 0; j < Columns; j++)
-                {
-                    var cell = Minefield.Cells[i, j];
-                    if (cell.IsMine && !cell.IsFlagged)
-                    {
-                        return false;
-                    }
-                    if (!cell.IsMine && cell.IsFlagged)
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
 
         private bool IsFirstMove(int x, int y) =>
             Minefield.CellsToOpen == Rows * Columns - Minefield.MineCount;
@@ -204,6 +176,13 @@ namespace Saper.Models
                     }
                 }
             }
+        }
+        public void RestartGame()
+        {
+            IsEnd = false;
+            IsWin = false;
+            Score = 0;
+            StartGame();
         }
 
         public event Action<bool, int, TimeSpan>? GameEnded;

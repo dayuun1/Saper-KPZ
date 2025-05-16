@@ -19,10 +19,9 @@ namespace Saper.ViewModels
         public ObservableCollection<CellViewModel> Cells { get; }
 
         public ICommand CellClickCommand { get; }
-        public ICommand ShowHintCommand { get; }
-        public ICommand ShowBombCommand { get; }
         public ICommand SafeClickCommand { get; }
         public ICommand ToggleFlagCommand { get; }
+        public ICommand RestartGameCommand { get; }
 
         public int Score => _gameManager.Score;
         public bool IsWin => _gameManager.IsWin;
@@ -71,6 +70,7 @@ namespace Saper.ViewModels
             {
                 _gameManager.SafeClickHint();
             });
+            RestartGameCommand = new RelayCommand(param => RestartGame());
             _gameManager.Rows = 10;
             _gameManager.Columns = 10;
             _gameManager.SetDifficulty(new IntermediateState(_gameManager));
@@ -96,6 +96,16 @@ namespace Saper.ViewModels
                     Cells.Add(cellVM);
                 }
             }
+        }
+        public void RestartGame()
+        {
+            _gameManager.RestartGame();
+            InitializeCells();
+            IsGameOver = false;
+            GameResultMessage = "";
+            OnPropertyChanged(nameof(Score));
+            OnPropertyChanged(nameof(IsGameOver));
+            OnPropertyChanged(nameof(IsWin));
         }
         private bool _isGameOver;
         public bool IsGameOver
