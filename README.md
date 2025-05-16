@@ -4,26 +4,26 @@
  Start Screen:
  * Log In to Profile
  * Register
-![Start Screen](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Images/11.jpg)
+![Start Screen](https://github.com/dayuun1/Saper-KPZ/tree/main/Saper/Images/11.jpg)
  Main Menu:
  * Start Game
  * View Game History
  * Change Profile
  * Log Out
-![Main Menu](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Images/12.jpg)
+![Main Menu](https://github.com/dayuun1/Saper-KPZ/tree/main/Saper/Images/12.jpg)
  Game Screen:
  * Display of a closed field with mines
  * Display of the current score
  * "Safe Move" button
  * Notification of victory or defeat
-![Game Screen](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Images/15.jpg)
+![Game Screen](https://github.com/dayuun1/Saper-KPZ/tree/main/Saper/Images/15.jpg)
  Game End Screen:
  * Display of the game result
  * "Play Again" button
  Escape Screen:
  * "Continue Game" button
  * "Exit to Menu" button
-![Game Screen](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Images/16.jpg)
+![Game Screen](https://github.com/dayuun1/Saper-KPZ/tree/main/Saper/Images/16.jpg)
 ### 2. Game logic
  Starting the game:
  * Field generation
@@ -42,11 +42,11 @@
  * Saving game history
  * Saving information about each game (victory or defeat, score, difficulty, time spent)
  * Automatically saving information about the game after it ends
-![Database](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Images/13.jpg)
+![Database](https://github.com/dayuun1/Saper-KPZ/tree/main/Saper/Images/13.jpg)
 ### 4. Additional features
  * Different difficulty levels (easy, medium, difficult)
  * Ability to choose the size of the playing field
-![features](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Images/14.jpg)
+![features](https://github.com/dayuun1/Saper-KPZ/tree/main/Saper/Images/14.jpg)
 
 ### Design Patterns
 #### [Strategy Pattern](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Models/Minefield.cs#17-58) - I use this pattern to generate a field.
