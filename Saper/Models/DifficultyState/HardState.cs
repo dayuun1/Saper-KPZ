@@ -21,7 +21,8 @@ namespace Saper.Models.DifficultyState
         {
             int rows = _game.Rows;
             int cols = _game.Columns;
-            int mines = Math.Max(MIN_MINES, rows * cols / 4); 
+            int percent = rows * cols / 4;
+            int mines = Math.Max(MIN_MINES, percent); 
 
             _game.Minefield.InitializeField(rows, cols, mines);
         }

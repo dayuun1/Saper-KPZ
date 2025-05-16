@@ -3,6 +3,58 @@
   "WorkspaceRootPath": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\views\\menuwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\views\\menuwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\difficultystate\\intermediatestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\intermediatestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\difficultystate\\hardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\hardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\difficultystate\\beginnerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\beginnerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\difficultystate\\idifficultystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\idifficultystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\viewmodels\\menuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\viewmodels\\menuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\viewmodels\\cellviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\viewmodels\\cellviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\minefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\minefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\celltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\celltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,14 +65,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\viewmodels\\mediator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\viewmodels\\mediator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\viewmodels\\gameviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\viewmodels\\cellviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\viewmodels\\cellviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\services\\windowservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -67,36 +111,8 @@
       "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\db\\applicationcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\celltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\celltype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\minefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\minefield.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\views\\menuwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\views\\menuwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\views\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\views\\menuwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\views\\menuwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\viewmodels\\menuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\viewmodels\\menuviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\migrations\\applicationcontextmodelsnapshot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -115,27 +131,11 @@
       "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\difficultystate\\intermediatestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\intermediatestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\difficultystate\\hardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\hardstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\difficultystate\\beginnerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\beginnerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\images\\9.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
       "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\images\\9.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\vonso\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|c:\\users\\vonso\\source\\repos\\saper3\\saper-kpz\\saper\\models\\difficultystate\\idifficultystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{05ECF0A2-77D5-4FA4-BC44-106CA945650C}|Saper\\Saper.csproj|solutionrelative:saper\\models\\difficultystate\\idifficultystate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\vonso\\AppData\\Local\\Temp\\.vsdbgsrc\\b49ace08f4cd26a4f275d628999a0f91ccb8a1892704530d9e6f5bd1284082f1\\ResourcePart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -148,7 +148,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 15,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -156,278 +156,72 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BoolToVisConverter.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\BoolToVisConverter.cs",
-              "RelativeDocumentMoniker": "Saper\\Converters\\BoolToVisConverter.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\BoolToVisConverter.cs",
-              "RelativeToolTip": "Saper\\Converters\\BoolToVisConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:51:26.601Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "BoolToVictoryConverter.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\BoolToVictoryConverter.cs",
-              "RelativeDocumentMoniker": "Saper\\Converters\\BoolToVictoryConverter.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\BoolToVictoryConverter.cs",
-              "RelativeToolTip": "Saper\\Converters\\BoolToVictoryConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T16:52:50.172Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "IWindowService.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\IWindowService.cs",
-              "RelativeDocumentMoniker": "Saper\\Services\\IWindowService.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\IWindowService.cs",
-              "RelativeToolTip": "Saper\\Services\\IWindowService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T15:20:01.581Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainWindowService.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\MainWindowService.cs",
-              "RelativeDocumentMoniker": "Saper\\Services\\MainWindowService.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\MainWindowService.cs",
-              "RelativeToolTip": "Saper\\Services\\MainWindowService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T15:20:02.135Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "WindowService.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\WindowService.cs",
-              "RelativeDocumentMoniker": "Saper\\Services\\WindowService.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\WindowService.cs",
-              "RelativeToolTip": "Saper\\Services\\WindowService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T15:19:09.332Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CellViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\CellViewModel.cs",
-              "RelativeDocumentMoniker": "Saper\\ViewModels\\CellViewModel.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\CellViewModel.cs",
-              "RelativeToolTip": "Saper\\ViewModels\\CellViewModel.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAwwDgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:28:44.778Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GameViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\GameViewModel.cs",
-              "RelativeDocumentMoniker": "Saper\\ViewModels\\GameViewModel.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\GameViewModel.cs",
-              "RelativeToolTip": "Saper\\ViewModels\\GameViewModel.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwMQAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:42:12.588Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Mediator.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\Mediator.cs",
-              "RelativeDocumentMoniker": "Saper\\ViewModels\\Mediator.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\Mediator.cs",
-              "RelativeToolTip": "Saper\\ViewModels\\Mediator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:44:02.481Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "RelayCommand.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\RelayCommand.cs",
-              "RelativeDocumentMoniker": "Saper\\ViewModels\\RelayCommand.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\RelayCommand.cs",
-              "RelativeToolTip": "Saper\\ViewModels\\RelayCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:36:35.368Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Cell.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\Cell.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\Cell.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\Cell.cs",
-              "RelativeToolTip": "Saper\\Models\\Cell.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAQwCUAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:33:01.912Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CellToImageConverter.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\CellToImageConverter.cs",
-              "RelativeDocumentMoniker": "Saper\\Converters\\CellToImageConverter.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\CellToImageConverter.cs",
-              "RelativeToolTip": "Saper\\Converters\\CellToImageConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T20:35:26.695Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "InverseBooleanConverter.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\InverseBooleanConverter.cs",
-              "RelativeDocumentMoniker": "Saper\\Converters\\InverseBooleanConverter.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\InverseBooleanConverter.cs",
-              "RelativeToolTip": "Saper\\Converters\\InverseBooleanConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:51:40.896Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ReverseBoolToVisConverter.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\ReverseBoolToVisConverter.cs",
-              "RelativeDocumentMoniker": "Saper\\Converters\\ReverseBoolToVisConverter.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\ReverseBoolToVisConverter.cs",
-              "RelativeToolTip": "Saper\\Converters\\ReverseBoolToVisConverter.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:51:29.139Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\User.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\DB\\User.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\User.cs",
-              "RelativeToolTip": "Saper\\Models\\DB\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T09:53:47.634Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "GameResult.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\GameResult.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\DB\\GameResult.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\GameResult.cs",
-              "RelativeToolTip": "Saper\\Models\\DB\\GameResult.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T09:54:04.412Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "ApplicationContext.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\ApplicationContext.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\DB\\ApplicationContext.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\ApplicationContext.cs",
-              "RelativeToolTip": "Saper\\Models\\DB\\ApplicationContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T11:09:33.285Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "CellType.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\CellType.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\CellType.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\CellType.cs",
-              "RelativeToolTip": "Saper\\Models\\CellType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:36:57.89Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "Minefield.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\Minefield.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\Minefield.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\Minefield.cs",
-              "RelativeToolTip": "Saper\\Models\\Minefield.cs",
-              "ViewState": "AgIAAFwAAAAAAAAAAAAswC8AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T11:41:38.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "MenuWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MenuWindow.xaml",
-              "RelativeDocumentMoniker": "Saper\\Views\\MenuWindow.xaml",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MenuWindow.xaml",
-              "RelativeToolTip": "Saper\\Views\\MenuWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T19:51:13.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
               "Title": "MenuViewModel.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\MenuViewModel.cs",
               "RelativeDocumentMoniker": "Saper\\ViewModels\\MenuViewModel.cs",
               "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\MenuViewModel.cs",
               "RelativeToolTip": "Saper\\ViewModels\\MenuViewModel.cs",
-              "ViewState": "AgIAALAAAAAAAAAAAAAUwMAAAABpAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-15T12:12:13.055Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Saper\\Views\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MainWindow.xaml",
-              "RelativeToolTip": "Saper\\Views\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-14T19:51:10.648Z",
+              "DocumentIndex": 6,
+              "Title": "IDifficultyState.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\IDifficultyState.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\IDifficultyState.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\IDifficultyState.cs",
+              "RelativeToolTip": "Saper\\Models\\DifficultyState\\IDifficultyState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T16:20:56.267Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 4,
+              "Title": "HardState.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\HardState.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\HardState.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\HardState.cs",
+              "RelativeToolTip": "Saper\\Models\\DifficultyState\\HardState.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T16:20:53.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BeginnerState.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\BeginnerState.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\BeginnerState.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\BeginnerState.cs",
+              "RelativeToolTip": "Saper\\Models\\DifficultyState\\BeginnerState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T16:20:51.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IntermediateState.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\IntermediateState.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\IntermediateState.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\IntermediateState.cs",
+              "RelativeToolTip": "Saper\\Models\\DifficultyState\\IntermediateState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:43:47.849Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Saper\\Views\\MainWindow.xaml.cs",
@@ -440,7 +234,265 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Saper\\Views\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MainWindow.xaml",
+              "RelativeToolTip": "Saper\\Views\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-14T19:51:10.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MenuWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MenuWindow.xaml",
+              "RelativeDocumentMoniker": "Saper\\Views\\MenuWindow.xaml",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MenuWindow.xaml",
+              "RelativeToolTip": "Saper\\Views\\MenuWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-05-14T19:51:13.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "GameViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\GameViewModel.cs",
+              "RelativeDocumentMoniker": "Saper\\ViewModels\\GameViewModel.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\GameViewModel.cs",
+              "RelativeToolTip": "Saper\\ViewModels\\GameViewModel.cs",
+              "ViewState": "AgIAALsAAAAAAAAAAAAcwMwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:42:12.588Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CellViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\CellViewModel.cs",
+              "RelativeDocumentMoniker": "Saper\\ViewModels\\CellViewModel.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\CellViewModel.cs",
+              "RelativeToolTip": "Saper\\ViewModels\\CellViewModel.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAIwD0AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:28:44.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Minefield.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\Minefield.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\Minefield.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\Minefield.cs",
+              "RelativeToolTip": "Saper\\Models\\Minefield.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:41:38.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\GameManager.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\GameManager.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\GameManager.cs",
+              "RelativeToolTip": "Saper\\Models\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T12:54:52.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CellType.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\CellType.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\CellType.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\CellType.cs",
+              "RelativeToolTip": "Saper\\Models\\CellType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:36:57.89Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Cell.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\Cell.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\Cell.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\Cell.cs",
+              "RelativeToolTip": "Saper\\Models\\Cell.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAowCUAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-14T11:33:01.912Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "RelayCommand.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\RelayCommand.cs",
+              "RelativeDocumentMoniker": "Saper\\ViewModels\\RelayCommand.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\RelayCommand.cs",
+              "RelativeToolTip": "Saper\\ViewModels\\RelayCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:36:35.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Mediator.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\Mediator.cs",
+              "RelativeDocumentMoniker": "Saper\\ViewModels\\Mediator.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\ViewModels\\Mediator.cs",
+              "RelativeToolTip": "Saper\\ViewModels\\Mediator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:44:02.481Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "WindowService.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\WindowService.cs",
+              "RelativeDocumentMoniker": "Saper\\Services\\WindowService.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\WindowService.cs",
+              "RelativeToolTip": "Saper\\Services\\WindowService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T15:19:09.332Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "MainWindowService.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\MainWindowService.cs",
+              "RelativeDocumentMoniker": "Saper\\Services\\MainWindowService.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\MainWindowService.cs",
+              "RelativeToolTip": "Saper\\Services\\MainWindowService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T15:20:02.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IWindowService.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\IWindowService.cs",
+              "RelativeDocumentMoniker": "Saper\\Services\\IWindowService.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Services\\IWindowService.cs",
+              "RelativeToolTip": "Saper\\Services\\IWindowService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T15:20:01.581Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "BoolToVictoryConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\BoolToVictoryConverter.cs",
+              "RelativeDocumentMoniker": "Saper\\Converters\\BoolToVictoryConverter.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\BoolToVictoryConverter.cs",
+              "RelativeToolTip": "Saper\\Converters\\BoolToVictoryConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T16:52:50.172Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "BoolToVisConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\BoolToVisConverter.cs",
+              "RelativeDocumentMoniker": "Saper\\Converters\\BoolToVisConverter.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\BoolToVisConverter.cs",
+              "RelativeToolTip": "Saper\\Converters\\BoolToVisConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:51:26.601Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "CellToImageConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\CellToImageConverter.cs",
+              "RelativeDocumentMoniker": "Saper\\Converters\\CellToImageConverter.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\CellToImageConverter.cs",
+              "RelativeToolTip": "Saper\\Converters\\CellToImageConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T20:35:26.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "InverseBooleanConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\InverseBooleanConverter.cs",
+              "RelativeDocumentMoniker": "Saper\\Converters\\InverseBooleanConverter.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\InverseBooleanConverter.cs",
+              "RelativeToolTip": "Saper\\Converters\\InverseBooleanConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:51:40.896Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ReverseBoolToVisConverter.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\ReverseBoolToVisConverter.cs",
+              "RelativeDocumentMoniker": "Saper\\Converters\\ReverseBoolToVisConverter.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Converters\\ReverseBoolToVisConverter.cs",
+              "RelativeToolTip": "Saper\\Converters\\ReverseBoolToVisConverter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-15T16:51:29.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\User.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DB\\User.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\User.cs",
+              "RelativeToolTip": "Saper\\Models\\DB\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T09:53:47.634Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "GameResult.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\GameResult.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DB\\GameResult.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\GameResult.cs",
+              "RelativeToolTip": "Saper\\Models\\DB\\GameResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T09:54:04.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ApplicationContext.cs",
+              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\ApplicationContext.cs",
+              "RelativeDocumentMoniker": "Saper\\Models\\DB\\ApplicationContext.cs",
+              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DB\\ApplicationContext.cs",
+              "RelativeToolTip": "Saper\\Models\\DB\\ApplicationContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T11:09:33.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
               "Title": "MenuWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Views\\MenuWindow.xaml.cs",
               "RelativeDocumentMoniker": "Saper\\Views\\MenuWindow.xaml.cs",
@@ -448,25 +500,11 @@
               "RelativeToolTip": "Saper\\Views\\MenuWindow.xaml.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAqwBcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T19:52:05.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T19:52:05.989Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\GameManager.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\GameManager.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\GameManager.cs",
-              "RelativeToolTip": "Saper\\Models\\GameManager.cs",
-              "ViewState": "AgIAALUAAAAAAAAAAAAAwBoAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T12:54:52.286Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 29,
               "Title": "20250516155723_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Migrations\\20250516155723_InitialCreate.cs",
               "RelativeDocumentMoniker": "Saper\\Migrations\\20250516155723_InitialCreate.cs",
@@ -474,12 +512,11 @@
               "RelativeToolTip": "Saper\\Migrations\\20250516155723_InitialCreate.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T15:57:44.116Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T15:57:44.116Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 28,
               "Title": "ApplicationContextModelSnapshot.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Migrations\\ApplicationContextModelSnapshot.cs",
               "RelativeDocumentMoniker": "Saper\\Migrations\\ApplicationContextModelSnapshot.cs",
@@ -487,12 +524,11 @@
               "RelativeToolTip": "Saper\\Migrations\\ApplicationContextModelSnapshot.cs",
               "ViewState": "AgIAADgAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T15:57:47.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T15:57:47.878Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 30,
               "Title": "MenuWindow.g.i.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\obj\\Debug\\net8.0-windows\\Views\\MenuWindow.g.i.cs",
               "RelativeDocumentMoniker": "Saper\\obj\\Debug\\net8.0-windows\\Views\\MenuWindow.g.i.cs",
@@ -500,12 +536,11 @@
               "RelativeToolTip": "Saper\\obj\\Debug\\net8.0-windows\\Views\\MenuWindow.g.i.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAArwEkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-16T15:50:29.707Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-16T15:50:29.707Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 31,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\App.xaml",
               "RelativeDocumentMoniker": "Saper\\App.xaml",
@@ -517,43 +552,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "HardState.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\HardState.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\HardState.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\HardState.cs",
-              "RelativeToolTip": "Saper\\Models\\DifficultyState\\HardState.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAowCoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T16:20:53.827Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "BeginnerState.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\BeginnerState.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\BeginnerState.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\BeginnerState.cs",
-              "RelativeToolTip": "Saper\\Models\\DifficultyState\\BeginnerState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T16:20:51.744Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "IntermediateState.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\IntermediateState.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\IntermediateState.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\IntermediateState.cs",
-              "RelativeToolTip": "Saper\\Models\\DifficultyState\\IntermediateState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-15T16:43:47.849Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "9.png -  [Ukrainian (Ukraine)] - PNG [16x16, 4 bit, PNG]",
               "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Images\\9.png",
               "RelativeDocumentMoniker": "Saper\\Images\\9.png",
@@ -566,18 +565,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 33,
-              "Title": "IDifficultyState.cs",
-              "DocumentMoniker": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\IDifficultyState.cs",
-              "RelativeDocumentMoniker": "Saper\\Models\\DifficultyState\\IDifficultyState.cs",
-              "ToolTip": "C:\\Users\\vonso\\source\\repos\\Saper3\\Saper-KPZ\\Saper\\Models\\DifficultyState\\IDifficultyState.cs",
-              "RelativeToolTip": "Saper\\Models\\DifficultyState\\IDifficultyState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T16:20:56.267Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 32,
               "Title": "XamlReader.cs",
               "DocumentMoniker": "C:\\Users\\vonso\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs",
               "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\0a84cc53936b314ba955b54f50bf4796d8234943f3fd7b93873381b45d404026\\XamlReader.cs",

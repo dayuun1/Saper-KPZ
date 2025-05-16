@@ -103,7 +103,7 @@
                     </TextBox>
                 </DockPanel>
                 <DockPanel Canvas.Left="20" Canvas.Top="135" LastChildFill="False">
-                    <Label FontSize="32" DockPanel.Dock="Left" Width="550" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42" >Оберіть складність:</Label>
+                    <Label FontSize="32" DockPanel.Dock="Left" Width="550" FontFamily="{StaticResource IrpinType}" Foreground="#F1ef42" >Оберіть складність (Easy, Medium):</Label>
                     <TextBox FontSize="34" DockPanel.Dock="Right" Width="400" FontFamily="{StaticResource IrpinType}" Text="{Binding Difficulty, UpdateSourceTrigger=PropertyChanged}">
                         <TextBox.Resources>
                             <Style TargetType="{x:Type Border}">

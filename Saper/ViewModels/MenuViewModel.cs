@@ -22,8 +22,6 @@ namespace Saper.ViewModels
         public RelayCommand GoCommand { get; set; }
         public RelayCommand LogInCommand { get; set; }
         public RelayCommand RegisterCommand { get; set; }
-        public RelayCommand NextPageCommand { get; set; }
-        public RelayCommand PreviousPageCommand { get; set; }
 
         private string _help;
         public string Help
