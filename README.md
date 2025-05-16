@@ -6,7 +6,7 @@
  Start Screen:
  * Log In to Profile
  * Register
-![Start Screen](Saper/Images/11.png)
+![Start Screen](https://github.com/dayuun1/Saper-KPZ/blob/readmeFile/Saper/Images/11.jpg)
  Main Menu:
  * Start Game
  * View Game History
