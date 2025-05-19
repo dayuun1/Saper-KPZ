@@ -76,6 +76,8 @@
  * Open the project in the command line or in the IDE.
  * Run the project via the dotnet run command or the run button in the IDE.
 
+### Number of lines
+![Number of lines](https://github.com/dayuun1/Saper-KPZ/blob/main/Saper/Images/rows.png)
 
 
 
