@@ -20,87 +20,75 @@ namespace Saper.ViewModels
         private IWindowService _windowService;
 
         private readonly GameManager _gameManager;
+        private readonly MenuState _menuState;
+
         public ObservableCollection<CellViewModel> Cells { get; }
 
-        public ICommand CellClickCommand { get; }
-        public ICommand SafeClickCommand { get; }
-        public ICommand ToggleFlagCommand { get; }
-        public ICommand RestartGameCommand { get; }
-        public ICommand ChangeMenuViewCommand { get; set; }
-        public ICommand ShowSettingsCommand { get; set; }
-        public ICommand QuitCommand { get; set; }
-
+        public ICommand CellClickCommand { get; private set; }
+        public ICommand SafeClickCommand { get; private set; }
+        public ICommand ToggleFlagCommand { get; private set; }
+        public ICommand RestartGameCommand { get; private set; }
+        public ICommand ChangeMenuViewCommand { get; private set; }
+        public ICommand ShowSettingsCommand { get; private set; }
+        public ICommand QuitCommand { get; private set; }
 
         public int Score => _gameManager.Score;
         public bool IsWin => _gameManager.IsWin;
         public int Rows => _gameManager.Rows;
         public int Columns => _gameManager.Columns;
         public bool CanUseSafeClick => _gameManager.SafeClick > 0;
-        public bool[] MenuSettingVisibility { get; set; }
-        public bool MenuVisibility { get; set; }
+
+        public bool MenuVisibility => _menuState.MenuVisibility;
+        public bool[] MenuSettingVisibility => new bool[] { _menuState.MainMenuVisible, _menuState.SettingsVisible };
+
+        private bool _isGameOver;
+        public bool IsGameOver
+        {
+            get => _isGameOver;
+            set { _isGameOver = value; OnPropertyChanged(nameof(IsGameOver)); }
+        }
+
+        private string _gameResultMessage = "";
+        public string GameResultMessage
+        {
+            get => _gameResultMessage;
+            set { _gameResultMessage = value; OnPropertyChanged(nameof(GameResultMessage)); }
+        }
+
         public GameViewModel(GameManager gameManager, IWindowService windowService)
         {
             _gameManager = gameManager;
-            gameManager.GameEnded += OnGameEnded;
-            Database = new ApplicationContext();
             _windowService = windowService;
-            MenuVisibility = false;
-            MenuSettingVisibility = [true, false];
+            _menuState = new MenuState();
+
+            Database = new ApplicationContext();
             Cells = new ObservableCollection<CellViewModel>();
 
-            CellClickCommand = new RelayCommand(param =>
-            {
-                if (param is CellViewModel cell)
-                {
-                    if (cell.IsFlagged)
-                        return;
+            InitializeCommands();
+            ConfigureGame();
+            SubscribeToEvents();
 
-                    _gameManager.OpenCell(cell.Row, cell.Column);
-                    var actualCell = _gameManager.Minefield.Cells[cell.Row, cell.Column];
-                    cell.IsOpend = actualCell.IsOpend;
-                    cell.CellType = actualCell.CellType;
+            _gameManager.StartGame();
+            InitializeCells();
+        }
 
-                    OnPropertyChanged(nameof(Rows));
-                    OnPropertyChanged(nameof(Columns));
-                    OnPropertyChanged(nameof(Score));
-                    OnPropertyChanged(nameof(IsGameOver));
-                    OnPropertyChanged(nameof(IsWin));
-                }
-            });
-
-            ToggleFlagCommand = new RelayCommand(param =>
-            {
-                if (param is CellViewModel cell && !cell.IsOpend)
-                {
-                    _gameManager.ToggleFlag(cell.Row, cell.Column);
-                    var actualCell = _gameManager.Minefield.Cells[cell.Row, cell.Column];
-                    cell.IsFlagged = actualCell.IsFlagged;
-
-                    OnPropertyChanged(nameof(Score));
-                }
-            });
+        private void InitializeCommands()
+        {
+            CellClickCommand = new CellClickCommand(this, _gameManager);
+            ToggleFlagCommand = new ToggleFlagCommand(this, _gameManager);
+            SafeClickCommand = new SafeClickCommand(this, _gameManager);
+            RestartGameCommand = new RelayCommand(param => RestartGame());
 
             ChangeMenuViewCommand = new RelayCommand(obj =>
             {
-                if (MenuVisibility && MenuSettingVisibility[0])
-                {
-                    MenuVisibility = false;
-                }
-                else
-                {
-                    MenuVisibility = true;
-                }
-                MenuSettingVisibility[0] = true;
-                MenuSettingVisibility[1] = false;
-                OnPropertyChanged(nameof(MenuSettingVisibility));
-                OnPropertyChanged(nameof(MenuVisibility));
+                _menuState.ToggleMenu();
+                NotifyMenuStateChanged();
             });
 
             ShowSettingsCommand = new RelayCommand(obj =>
             {
-                MenuSettingVisibility[0] = false;
-                MenuSettingVisibility[1] = true;
-                OnPropertyChanged(nameof(MenuSettingVisibility));
+                _menuState.ShowSettings();
+                NotifyMenuStateChanged();
             });
 
             QuitCommand = new RelayCommand(obj =>
@@ -110,31 +98,36 @@ namespace Saper.ViewModels
                 Database.SaveChanges();
                 _windowService.OpenWindow();
             });
+        }
 
-            SafeClickCommand = new RelayCommand(
-    param =>
-    {
-        _gameManager.SafeClickHint();
-        OnPropertyChanged(nameof(CanUseSafeClick));
-        (SafeClickCommand as RelayCommand)?.RaiseCanExecuteChanged();
-        OnPropertyChanged(nameof(Score));
-    },
-    param => CanUseSafeClick
-);
-            RestartGameCommand = new RelayCommand(param => RestartGame());
-            gameManager.Rows = Mediator.Rows;
+        private void ConfigureGame()
+        {
+            _gameManager.Rows = Mediator.Rows;
             _gameManager.Columns = Mediator.Columns;
 
+            IDifficultyState difficulty;
             switch (Mediator.Difficulty)
             {
-                case "Easy": _gameManager.SetDifficulty(new BeginnerState(_gameManager)); break;
-                case "Medium": _gameManager.SetDifficulty(new IntermediateState(_gameManager)); break;
-                case "Hard": _gameManager.SetDifficulty(new HardState(_gameManager)); break;
-                default: _gameManager.SetDifficulty(new IntermediateState(_gameManager)); break;
+                case "Easy":
+                    difficulty = new BeginnerState(_gameManager);
+                    break;
+                case "Medium":
+                    difficulty = new IntermediateState(_gameManager);
+                    break;
+                case "Hard":
+                    difficulty = new HardState(_gameManager);
+                    break;
+                default:
+                    difficulty = new IntermediateState(_gameManager);
+                    break;
             }
-            _gameManager.StartGame(); 
 
-            InitializeCells();
+            _gameManager.SetDifficulty(difficulty);
+        }
+
+        private void SubscribeToEvents()
+        {
+            _gameManager.GameEnded += OnGameEnded;
         }
 
         private void InitializeCells()
@@ -155,31 +148,19 @@ namespace Saper.ViewModels
                 }
             }
         }
+
         public void RestartGame()
         {
             _gameManager.RestartGame();
             InitializeCells();
             IsGameOver = false;
             GameResultMessage = "";
-            OnPropertyChanged(nameof(Score));
-            OnPropertyChanged(nameof(IsGameOver));
-            OnPropertyChanged(nameof(IsWin));
-            OnPropertyChanged(nameof(CanUseSafeClick));
-            (SafeClickCommand as RelayCommand)?.RaiseCanExecuteChanged();
-        }
-        private bool _isGameOver;
-        public bool IsGameOver
-        {
-            get => _isGameOver;
-            set { _isGameOver = value; OnPropertyChanged(nameof(IsGameOver)); }
+
+            NotifyGameStateChanged();
+            NotifySafeClickChanged();
+            (SafeClickCommand as SafeClickCommand)?.RaiseCanExecuteChanged();
         }
 
-        private string _gameResultMessage = "";
-        public string GameResultMessage
-        {
-            get => _gameResultMessage;
-            set { _gameResultMessage = value; OnPropertyChanged(nameof(GameResultMessage)); }
-        }
         private void OnGameEnded(bool isWin, int score, TimeSpan time)
         {
             IsGameOver = true;
@@ -197,11 +178,34 @@ namespace Saper.ViewModels
             });
         }
 
+        public void NotifyGameStateChanged()
+        {
+            OnPropertyChanged(nameof(Rows));
+            OnPropertyChanged(nameof(Columns));
+            OnPropertyChanged(nameof(Score));
+            OnPropertyChanged(nameof(IsGameOver));
+            OnPropertyChanged(nameof(IsWin));
+        }
+
+        public void NotifyScoreChanged()
+        {
+            OnPropertyChanged(nameof(Score));
+        }
+
+        public void NotifySafeClickChanged()
+        {
+            OnPropertyChanged(nameof(CanUseSafeClick));
+        }
+
+        private void NotifyMenuStateChanged()
+        {
+            OnPropertyChanged(nameof(MenuSettingVisibility));
+            OnPropertyChanged(nameof(MenuVisibility));
+        }
 
         protected void OnPropertyChanged(string name)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
     }
-
 }
