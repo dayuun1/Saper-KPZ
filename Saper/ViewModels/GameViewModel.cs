@@ -3,12 +3,8 @@ using Saper.Models.DB;
 using Saper.Models.DifficultyState;
 using Saper.Services;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace Saper.ViewModels
@@ -16,11 +12,12 @@ namespace Saper.ViewModels
     public class GameViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
-        public ApplicationContext Database;
-        private IWindowService _windowService;
 
         private readonly GameManager _gameManager;
-        private readonly MenuState _menuState;
+        private readonly IGameDatabaseService _databaseService;
+        private readonly IMenuStateService _menuStateService;
+        private readonly IWindowService _windowService;
+        private readonly GameConfiguration _gameConfiguration;
 
         public ObservableCollection<CellViewModel> Cells { get; }
 
@@ -38,8 +35,8 @@ namespace Saper.ViewModels
         public int Columns => _gameManager.Columns;
         public bool CanUseSafeClick => _gameManager.SafeClick > 0;
 
-        public bool MenuVisibility => _menuState.MenuVisibility;
-        public bool[] MenuSettingVisibility => new bool[] { _menuState.MainMenuVisible, _menuState.SettingsVisible };
+        public bool MenuVisibility => _menuStateService.MenuVisibility;
+        public bool[] MenuSettingVisibility => new bool[] { _menuStateService.MainMenuVisible, _menuStateService.SettingsVisible };
 
         private bool _isGameOver;
         public bool IsGameOver
@@ -55,13 +52,19 @@ namespace Saper.ViewModels
             set { _gameResultMessage = value; OnPropertyChanged(nameof(GameResultMessage)); }
         }
 
-        public GameViewModel(GameManager gameManager, IWindowService windowService)
+        public GameViewModel(
+            GameManager gameManager,
+            IWindowService windowService,
+            IGameDatabaseService databaseService,
+            IMenuStateService menuStateService,
+            GameConfiguration gameConfiguration)
         {
             _gameManager = gameManager;
             _windowService = windowService;
-            _menuState = new MenuState();
+            _databaseService = databaseService;
+            _menuStateService = menuStateService;
+            _gameConfiguration = gameConfiguration;
 
-            Database = new ApplicationContext();
             Cells = new ObservableCollection<CellViewModel>();
 
             InitializeCommands();
@@ -81,46 +84,35 @@ namespace Saper.ViewModels
 
             ChangeMenuViewCommand = new RelayCommand(obj =>
             {
-                _menuState.ToggleMenu();
+                _menuStateService.ToggleMenu();
                 NotifyMenuStateChanged();
             });
 
             ShowSettingsCommand = new RelayCommand(obj =>
             {
-                _menuState.ShowSettings();
+                _menuStateService.ShowSettings();
                 NotifyMenuStateChanged();
             });
 
             QuitCommand = new RelayCommand(obj =>
             {
-                Mediator.PageId = 2;
-                User user = Database.Users.Find(Mediator.UserId);
-                Database.SaveChanges();
+                _databaseService.SaveUserSession(_gameConfiguration.UserId);
                 _windowService.OpenWindow();
             });
         }
 
         private void ConfigureGame()
         {
-            _gameManager.Rows = Mediator.Rows;
-            _gameManager.Columns = Mediator.Columns;
+            _gameManager.Rows = _gameConfiguration.Rows;
+            _gameManager.Columns = _gameConfiguration.Columns;
 
-            IDifficultyState difficulty;
-            switch (Mediator.Difficulty)
+            IDifficultyState difficulty = _gameConfiguration.Difficulty switch
             {
-                case "Easy":
-                    difficulty = new BeginnerState(_gameManager);
-                    break;
-                case "Medium":
-                    difficulty = new IntermediateState(_gameManager);
-                    break;
-                case "Hard":
-                    difficulty = new HardState(_gameManager);
-                    break;
-                default:
-                    difficulty = new IntermediateState(_gameManager);
-                    break;
-            }
+                "Easy" => new BeginnerState(_gameManager),
+                "Medium" => new IntermediateState(_gameManager),
+                "Hard" => new HardState(_gameManager),
+                _ => new IntermediateState(_gameManager)
+            };
 
             _gameManager.SetDifficulty(difficulty);
         }
@@ -168,13 +160,13 @@ namespace Saper.ViewModels
                 ? $"Ви перемогли! Очки: {score}, Час: {time:mm\\:ss}"
                 : $"Ви програли! Очки: {score}, Час: {time:mm\\:ss}";
 
-            Database.GameResults.Add(new GameResult
+            _databaseService.SaveGameResult(new GameResult
             {
                 Score = score,
                 IsWin = isWin,
                 TimeSpent = time,
-                UserId = Mediator.UserId,
-                Difficulty = Mediator.Difficulty
+                UserId = _gameConfiguration.UserId,
+                Difficulty = _gameConfiguration.Difficulty
             });
         }
 
