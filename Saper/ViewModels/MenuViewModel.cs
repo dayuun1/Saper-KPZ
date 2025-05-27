@@ -1,79 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Saper.Services;
+using System.Runtime.CompilerServices;
 using Saper.Models.DB;
+using Saper.Services;
 
 namespace Saper.ViewModels
 {
-    class MenuViewModel : INotifyPropertyChanged
+    public class MenuViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private IWindowService _windowService;
-        private IWindowService _mainWindowService;
-        private ApplicationContext _dataBase;
-
-        public RelayCommand StartCommand { get; set; }
-        public RelayCommand CloseWindowCommand { get; set; }
-        public RelayCommand GoCommand { get; set; }
-        public RelayCommand LogInCommand { get; set; }
-        public RelayCommand RegisterCommand { get; set; }
-
-        private string _help;
+        private readonly IWindowService _windowService;
+        private readonly IWindowService _mainWindowService;
+        private readonly ApplicationContext _dataBase;
+        public RelayCommand LogInCommand { get; }
+        public RelayCommand RegisterCommand { get; }
+        public RelayCommand CloseWindowCommand { get; }
+        public RelayCommand GoCommand { get; }
+        public RelayCommand StartCommand { get; }
+        public ObservableCollection<GameResult> GameResultsList { get; } = new();
+        public ObservableCollection<bool> Pages { get; } = new ObservableCollection<bool> { true, false };
+        public ObservableCollection<bool> PageVisibility { get; }
+        private string _help = string.Empty;
         public string Help
         {
             get => _help;
-            set
-            {
-                _help = value;
-                OnPropertyChanged(nameof(Help));
-            }
+            set => SetProperty(ref _help, value);
         }
 
-        private string _login = "";
+        private string _login = string.Empty;
         public string Login
         {
             get => _login;
             set
             {
-                if (_login != value)
-                {
-                    _login = value;
-                    OnPropertyChanged(nameof(Login));
-                    (LogInCommand as RelayCommand)?.RaiseCanExecuteChanged();
-                    (RegisterCommand as RelayCommand)?.RaiseCanExecuteChanged();
-                }
+                if (SetProperty(ref _login, value.Trim()))
+                    LogInCommand.RaiseCanExecuteChanged();
             }
         }
 
-        private string _password = "";
+        private string _password = string.Empty;
         public string Password
         {
             get => _password;
             set
             {
-                if (_password != value)
-                {
-                    _password = value;
-                    OnPropertyChanged(nameof(Password));
-                    (LogInCommand as RelayCommand)?.RaiseCanExecuteChanged();
-                    (RegisterCommand as RelayCommand)?.RaiseCanExecuteChanged();
-                }
+                if (SetProperty(ref _password, value.Trim()))
+                    LogInCommand.RaiseCanExecuteChanged();
             }
         }
+
         private string _fieldSize = "10";
         public string FieldSize
         {
             get => _fieldSize;
             set
             {
-                _fieldSize = value;
-                OnPropertyChanged(nameof(FieldSize));
-                (StartCommand as RelayCommand)?.RaiseCanExecuteChanged();
+                if (SetProperty(ref _fieldSize, value))
+                    StartCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -83,174 +69,153 @@ namespace Saper.ViewModels
             get => _difficulty;
             set
             {
-                _difficulty = value;
-                OnPropertyChanged(nameof(Difficulty));
-                (StartCommand as RelayCommand)?.RaiseCanExecuteChanged();
+                if (SetProperty(ref _difficulty, value))
+                    StartCommand.RaiseCanExecuteChanged();
             }
         }
+
         private bool _isWin;
         public bool IsWin
         {
             get => _isWin;
-            set
-            {
-                _isWin = value;
-                OnPropertyChanged(nameof(IsWin));
-            }
+            set => SetProperty(ref _isWin, value);
         }
 
-        private string _score;
+        private string _score = string.Empty;
         public string Score
         {
             get => _score;
-            set
-            {
-                _score = value;
-                OnPropertyChanged(nameof(Score));
-            }
+            set => SetProperty(ref _score, value);
         }
-
 
         private TimeSpan _timeSpent;
         public TimeSpan TimeSpent
         {
             get => _timeSpent;
-            set
-            {
-                _timeSpent = value;
-                OnPropertyChanged(nameof(TimeSpent));
-            }
+            set => SetProperty(ref _timeSpent, value);
         }
-
-        private int _pageNum;
-        public List<GameResult> GameResultsList { get; set; } = new();
-        public bool[] Pages { get; set; }
-        public bool[] PageVisibility { get; set; }
 
         public MenuViewModel(IWindowService windowService, IWindowService mainWindowService)
         {
-            _pageNum = 0;
-            Pages = [true, false];
-            PageVisibility = [false, false, false, false, false, false];
-            PageVisibility[Mediator.PageId] = true;
-            Mediator.PageId = 0;
-            Login = Mediator.Login;
-            GameResultsList = new();
-
-
             _windowService = windowService;
             _mainWindowService = mainWindowService;
             _dataBase = new ApplicationContext();
-
+            PageVisibility = new ObservableCollection<bool>(Enumerable.Repeat(false, 6));
+            Mediator.PageId = 0;
+            PageVisibility[0] = true;
+            Login = Mediator.Login;
             if (!string.IsNullOrEmpty(Login))
+                LoadGameResults();
+            LogInCommand = new RelayCommand(_ => ExecuteLogIn(), _ => CanAuthenticate());
+            RegisterCommand = new RelayCommand(_ => ExecuteRegister(), _ => CanAuthenticate());
+            CloseWindowCommand = new RelayCommand(_ => _windowService.CloseWindow());
+            GoCommand = new RelayCommand(param =>
             {
-                GameResultsList = _dataBase.GameResults.Where(u => u.UserId == Mediator.UserId).ToList();
-            }
-            LogInCommand = new RelayCommand(obj => LogInCommandExecuted(), obj => LogAndRegisterCommandCanExecute());
-            RegisterCommand = new RelayCommand(obj => RegisterCommandExecuted(), obj => LogAndRegisterCommandCanExecute());
-            CloseWindowCommand = new RelayCommand(obj => _windowService.CloseWindow());
-
-            GoCommand = new RelayCommand(obj =>
-            {
-                int idx = int.Parse((string)obj);
-                GoCommandExecuted(idx);
-            });
-
-            StartCommand = new RelayCommand(obj =>
-            {
-                if (int.TryParse(FieldSize, out int size))
+                if (int.TryParse(param?.ToString(), out int idx))
                 {
-                    Mediator.Rows = size;
-                    Mediator.Columns = size;
-                    Mediator.Difficulty = Difficulty;
-
-                    var user = _dataBase.Users.Find(Mediator.UserId);
-                    _dataBase.SaveChanges();
-
-                    _mainWindowService.OpenWindow(); 
+                    Navigate(idx);
                 }
-            }, obj => StartCommandCanExecute());
-            CloseWindowCommand = new RelayCommand(obj => _windowService.CloseWindow());
+            }, _ => true);
+            StartCommand = new RelayCommand(_ => ExecuteStart(), _ => CanStartGame());
         }
-            
-        public void LogInCommandExecuted()
+
+        private void LoadGameResults()
         {
-            User user = _dataBase.Users.FirstOrDefault(u => u.Password == Password.Trim() && u.Login == Login.Trim());
+            GameResultsList.Clear();
+            var results = _dataBase.GameResults.Where(r => r.UserId == Mediator.UserId);
+            foreach (var r in results)
+                GameResultsList.Add(r);
+            OnPropertyChanged(nameof(GameResultsList));
+        }
+
+        private bool CanAuthenticate()
+            => !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
+
+        private void ExecuteLogIn()
+        {
+            var user = _dataBase.Users.FirstOrDefault(u => u.Login == Login && u.Password == Password);
             if (user == null)
             {
                 Help = "Такого акаунту не існує";
+                return;
             }
-            else
-            {
-                PageVisibility[0] = false;
-                PageVisibility[2] = true;
-                Help = "";
-                Mediator.Login = user.Login;
-                Mediator.UserId = user.Id;
-                Mediator.IsMuted = user.IsSoundMuted;
-                GameResultsList = _dataBase.GameResults.Where(u => u.UserId == Mediator.UserId).ToList();
-                OnPropertyChanged(nameof(GameResultsList));
-                OnPropertyChanged(nameof(PageVisibility));
-            }
+            Mediator.Login = user.Login;
+            Mediator.UserId = user.Id;
+            Mediator.IsMuted = user.IsSoundMuted;
+            _dataBase.SaveChanges();
+
+            Help = string.Empty;
+            Navigate(2);
+            LoadGameResults();
         }
 
-        public bool LogAndRegisterCommandCanExecute()
+        private void ExecuteRegister()
         {
-            return !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
-        }
-
-        public void RegisterCommandExecuted()
-        {
-            if (_dataBase.Users.FirstOrDefault(u => u.Login == Login.Trim()) != null)
+            if (_dataBase.Users.Any(u => u.Login == Login))
             {
                 Help = "Ім'я зайняте, оберіть інше";
+                return;
             }
-            else
+            var newUser = new User { Login = Login, Password = Password, IsSoundMuted = false };
+            _dataBase.Users.Add(newUser);
+            _dataBase.SaveChanges();
+
+            Mediator.Login = newUser.Login;
+            Mediator.UserId = newUser.Id;
+            Mediator.IsMuted = false;
+
+            Help = string.Empty;
+            Navigate(2);
+            GameResultsList.Clear();
+        }
+
+        private bool CanStartGame()
+            => int.TryParse(FieldSize, out var size)
+               && size >= 10 && size <= 50
+               && new[] { "Easy", "Medium", "Hard" }.Contains(Difficulty);
+
+        private void ExecuteStart()
+        {
+            if (int.TryParse(FieldSize, out var size))
             {
-                _dataBase.Users.Add(new User { Login = Login.Trim(), Password = Password.Trim(), IsSoundMuted = false });
+                Mediator.Rows = size;
+                Mediator.Columns = size;
+                Mediator.Difficulty = Difficulty;
                 _dataBase.SaveChanges();
-                PageVisibility[1] = false;
-                PageVisibility[2] = true;
-                Help = "";
-                GameResultsList = new();
-                Mediator.Login = _dataBase.Users.FirstOrDefault(u => u.Login == Login.Trim()).Login;
-                Mediator.IsMuted = false;
-                Mediator.UserId = _dataBase.Users.FirstOrDefault(u => u.Login == Login.Trim()).Id;
-                OnPropertyChanged(nameof(GameResultsList));
-                OnPropertyChanged(nameof(PageVisibility));
+                _mainWindowService.OpenWindow();
             }
         }
-        public bool StartCommandCanExecute()
+
+        private void Navigate(int idx)
         {
-            return int.TryParse(FieldSize, out int size) && size >= 10 && size <= 50 &&
-          (Difficulty == "Easy" || Difficulty == "Medium" || Difficulty == "Hard");
-        }
-        public void GoCommandExecuted(int idx)
-        {
-            for (int i = 0; i < PageVisibility.Length; i++)
-            {
-                PageVisibility[i] = false;
-            }
-            PageVisibility[idx] = true;
-            Help = "";
+            Mediator.PageId = idx;
+            for (int i = 0; i < PageVisibility.Count; i++)
+                PageVisibility[i] = i == idx;
+            OnPropertyChanged(nameof(PageVisibility));
+            Help = string.Empty;
+
             if (idx == 0 || idx == 1)
             {
-                Login = "";
-                Password = "";
+                Login = string.Empty;
+                Password = string.Empty;
             }
             else if (idx == 2)
             {
-                Pages[_pageNum] = false;
-                _pageNum = 0;
-                Pages[_pageNum] = true;
+                Pages[0] = true;
+                Pages[1] = false;
                 OnPropertyChanged(nameof(Pages));
             }
-            OnPropertyChanged(nameof(PageVisibility));
         }
-        public void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-    }
 
+        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? propName = null)
+        {
+            if (Equals(field, value)) return false;
+            field = value;
+            OnPropertyChanged(propName);
+            return true;
+        }
+
+        protected void OnPropertyChanged(string? name)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
 }
