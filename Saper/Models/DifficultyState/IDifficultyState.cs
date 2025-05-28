@@ -6,10 +6,21 @@ using System.Threading.Tasks;
 
 namespace Saper.Models.DifficultyState
 {
-    public interface IDifficultyState
+    public abstract class IDifficultyState
     {
-        void GenerateMinefield();
-        void UpdateScore(CellType cellType);
-        void SetHints();
+        public IDifficultyState(GameManager game)
+        {
+            _game = game;
+        }
+
+        protected Dictionary<CellType, int> scorePerCellDictionary = new Dictionary<CellType, int>();
+        protected readonly GameManager _game;
+
+        public abstract void GenerateMinefield();
+        public virtual void UpdateScore(CellType cellType)
+        {
+            _game.Score += scorePerCellDictionary[cellType];
+        }
+        public abstract void SetHints();
     }
 }
