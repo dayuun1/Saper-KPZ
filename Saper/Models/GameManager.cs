@@ -55,11 +55,6 @@ namespace Saper.Models
         {
             if (!IsInsideBounds(x, y)) return;
 
-            if (IsFirstMove(x, y))
-            {
-                RegenerateFieldUntilSafeCell(x, y);
-            }
-
             Cell cell = Minefield.Cells[x, y];
 
             if (cell.IsOpend) return;
@@ -74,9 +69,6 @@ namespace Saper.Models
                 }
                 else
                 {
-                    IsEnd = true;
-                    IsWin = false;  
-                    Stopwatch.Stop();
                     EndGame(false);
                     return;  
                 }
@@ -94,25 +86,10 @@ namespace Saper.Models
 
             if (Minefield.CellsToOpen == 0)
             {
-                IsEnd = true;
-                IsWin = true;
-                Stopwatch.Stop();
                 EndGame(true);
                 return;
             }
             IsSafeClick = false;
-        }
-
-
-        private bool IsFirstMove(int x, int y) =>
-            Minefield.CellsToOpen == Rows * Columns - Minefield.MineCount;
-
-        private void RegenerateFieldUntilSafeCell(int x, int y)
-        {
-            while (Minefield.Cells[x, y].CellType != CellType.Zero)
-            {
-                DifficultyState.GenerateMinefield();
-            }
         }
 
         private void OpenSurroundingCells(int x, int y)

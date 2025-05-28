@@ -8,16 +8,21 @@ namespace Saper.Models.DifficultyState
 {
     public class IntermediateState : IDifficultyState
     {
-        private readonly GameManager _game;
-
         private const int MIN_MINES = 8;
 
-        public IntermediateState(GameManager game)
+        public IntermediateState(GameManager game) : base(game) 
         {
-            _game = game;
+            scorePerCellDictionary = new Dictionary<CellType, int>()
+            {
+                {CellType.Zero, 0 }, {CellType.One, 12},
+                {CellType.Two, 12 }, {CellType.Three, 12},
+                {CellType.Four, 12 }, {CellType.Five, 20},
+                {CellType.Six, 20}, {CellType.Seven, 30},
+                {CellType.Eight, 30 }
+            };
         }
 
-        public void GenerateMinefield()
+        public override void GenerateMinefield()
         {
             int rows = _game.Rows;
             int cols = _game.Columns;
@@ -27,20 +32,7 @@ namespace Saper.Models.DifficultyState
             _game.Minefield.InitializeField(rows, cols, mines);
         }
 
-        public void UpdateScore(CellType cellType)
-        {
-            int score = cellType switch
-            {
-                CellType.Zero => 0,
-                CellType.Five or CellType.Six => 20,
-                CellType.Seven or CellType.Eight => 30,
-                _ => 12
-            };
-
-            _game.Score += score;
-        }
-
-        public void SetHints()
+        public override void SetHints()
         {
             _game.SafeClick = 2;
         }
