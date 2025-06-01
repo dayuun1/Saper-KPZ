@@ -24,7 +24,7 @@
                 <Rectangle Fill="#4c2c24" Width="700" Height="550" Opacity="0.4" RadiusX="35" RadiusY="35"/>
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <Button Style="{StaticResource GameButton}" Background="#4892CB" Width="350" Height="100" Content="Назад" Margin="0 0 0 30" FontSize="32" Command="{Binding ChangeMenuViewCommand}"/>
-                    <Button Style="{StaticResource GameButton}" Background="#A42a2c" Width="350" Height="100" Content="Вийти" Margin="0 0 0 30" FontSize="32" Command="{Binding QuitCommand}" />
+                    <Button Style="{StaticResource GameButton}" Background="#A42a2c" Width="350" Height="100" Content="Вийти" Margin="0 0 0 30" FontSize="32" Command="{Binding QuitCommand}" Click="ExitButton_Click" />
                 </StackPanel>
             </Grid>
         </Grid>

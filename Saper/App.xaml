@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Saper"
              xmlns:local1="clr-namespace:Saper.Converters"
-             StartupUri="Views/MenuWindow.xaml">
+             StartupUri="Views/MenuWindow.xaml"
+             ShutdownMode="OnMainWindowClose">
     <Application.Resources>
         <local1:InverseBooleanConverter x:Key="InverseBooleanConverter" />
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>

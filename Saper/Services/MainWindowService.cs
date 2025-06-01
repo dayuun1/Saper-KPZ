@@ -1,40 +1,27 @@
-﻿using Saper.Views;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
+using Saper.Views;
 
 namespace Saper.Services
 {
-    public class MainWindowService : IWindowService
+    public class WindowService : IWindowService
     {
-        public void OpenWindow()
+        public void OpenMainWindow()
+        {
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
+        }
+
+        public void OpenMenuWindow()
+        {
+            var menuWindow = new MenuWindow();
+            menuWindow.Show();
+        }
+
+        public void CloseCurrentWindow()
         {
             var currentWindow = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-            Window window;
-            if (currentWindow is MenuWindow)
-            {
-                window = new MainWindow();
-            }
-            else
-            {
-                window = new MenuWindow();
-            }
-
-            window.Show();
-            currentWindow.Close();
-        }
-        public void CloseWindow()
-        {
-            var window = Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
-
-            if (window != null)
-            {
-                window.Close();
-            }
+            currentWindow?.Close();
         }
     }
-
 }

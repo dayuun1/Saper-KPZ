@@ -8,7 +8,10 @@ namespace Saper.Services
 {
     public interface IWindowService
     {
-        void OpenWindow();
-        void CloseWindow();
+        void OpenMainWindow();
+        void OpenMenuWindow();
+        void CloseCurrentWindow();
     }
+
+
 }

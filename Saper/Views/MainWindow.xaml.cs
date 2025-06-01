@@ -5,36 +5,36 @@ using System.Windows;
 
 namespace Saper
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly IWindowService windowService;  // зробити поле класу
+
         public MainWindow()
         {
             InitializeComponent();
 
-            // Створення сервісів
-            var windowService = new WindowService();
+            // Ініціалізуємо поле
+            windowService = new WindowService();
+
             var gameManager = new GameManager();
             var databaseService = new GameDatabaseService();
             var menuStateService = new MenuStateService();
 
-            // Створення конфігурації гри (замість використання статичного Mediator)
             var gameConfiguration = new GameConfiguration
             {
-                Login = GetLoginFromPreviousWindow(), // Потрібно передати з попереднього вікна
-                UserId = GetUserIdFromPreviousWindow(), // Потрібно передати з попереднього вікна
-                Rows = GetRowsFromPreviousWindow(), // Потрібно передати з попереднього вікна
-                Columns = GetColumnsFromPreviousWindow(), // Потрібно передати з попереднього вікна
-                Difficulty = GetDifficultyFromPreviousWindow(), // Потрібно передати з попереднього вікна
-                IsMuted = GetMutedStateFromPreviousWindow() // Потрібно передати з попереднього вікна
+                Login = GetLoginFromPreviousWindow(),
+                UserId = GetUserIdFromPreviousWindow(),
+                Rows = GetRowsFromPreviousWindow(),
+                Columns = GetColumnsFromPreviousWindow(),
+                Difficulty = GetDifficultyFromPreviousWindow(),
+                IsMuted = GetMutedStateFromPreviousWindow()
             };
 
-            // Створення ViewModel з усіма залежностями
+            // Передаємо windowService у ViewModel
             var gameViewModel = new GameViewModel(
                 gameManager,
                 windowService,
+                windowService,      // Залишаємо так, як було
                 databaseService,
                 menuStateService,
                 gameConfiguration);
@@ -42,37 +42,17 @@ namespace Saper
             DataContext = gameViewModel;
         }
 
-        // Методи для отримання даних з попереднього вікна
-        // Ці методи потрібно реалізувати залежно від того, як ви передаєте дані між вікнами
-        private string GetLoginFromPreviousWindow()
-        {
-            // Тут може бути логіка отримання логіну з конструктора або з параметрів
-            return Mediator.Login; // Тимчасово, поки не реалізуєте передачу параметрів
-        }
+        private string GetLoginFromPreviousWindow() => Mediator.Login;
+        private int GetUserIdFromPreviousWindow() => Mediator.UserId;
+        private int GetRowsFromPreviousWindow() => Mediator.Rows;
+        private int GetColumnsFromPreviousWindow() => Mediator.Columns;
+        private string GetDifficultyFromPreviousWindow() => Mediator.Difficulty;
+        private bool GetMutedStateFromPreviousWindow() => Mediator.IsMuted;
 
-        private int GetUserIdFromPreviousWindow()
+        private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            return Mediator.UserId; // Тимчасово
-        }
+            windowService.OpenMenuWindow();
 
-        private int GetRowsFromPreviousWindow()
-        {
-            return Mediator.Rows; // Тимчасово
-        }
-
-        private int GetColumnsFromPreviousWindow()
-        {
-            return Mediator.Columns; // Тимчасово
-        }
-
-        private string GetDifficultyFromPreviousWindow()
-        {
-            return Mediator.Difficulty; // Тимчасово
-        }
-
-        private bool GetMutedStateFromPreviousWindow()
-        {
-            return Mediator.IsMuted; // Тимчасово
         }
     }
 }
