@@ -12,23 +12,23 @@ namespace Saper.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private readonly IWindowService _windowService;
+        private readonly IWindowService _authWindowService;
         private readonly IWindowService _mainWindowService;
         private readonly ApplicationContext _dataBase;
+
+        private const int MinFieldSize = 10;
+        private const int MaxFieldSize = 50;
+        private readonly string[] AllowedDifficulties = { "Easy", "Medium", "Hard" };
+
         public RelayCommand LogInCommand { get; }
         public RelayCommand RegisterCommand { get; }
         public RelayCommand CloseWindowCommand { get; }
         public RelayCommand GoCommand { get; }
         public RelayCommand StartCommand { get; }
+
         public ObservableCollection<GameResult> GameResultsList { get; } = new();
-        public ObservableCollection<bool> Pages { get; } = new ObservableCollection<bool> { true, false };
+        public ObservableCollection<bool> Pages { get; } = new() { true, false };
         public ObservableCollection<bool> PageVisibility { get; }
-        private string _help = string.Empty;
-        public string Help
-        {
-            get => _help;
-            set => SetProperty(ref _help, value);
-        }
 
         private string _login = string.Empty;
         public string Login
@@ -37,7 +37,7 @@ namespace Saper.ViewModels
             set
             {
                 if (SetProperty(ref _login, value.Trim()))
-                    LogInCommand.RaiseCanExecuteChanged();
+                    UpdateAuthCommands();
             }
         }
 
@@ -48,7 +48,7 @@ namespace Saper.ViewModels
             set
             {
                 if (SetProperty(ref _password, value.Trim()))
-                    LogInCommand.RaiseCanExecuteChanged();
+                    UpdateAuthCommands();
             }
         }
 
@@ -74,48 +74,36 @@ namespace Saper.ViewModels
             }
         }
 
+        private string _help = string.Empty;
+        public string Help { get => _help; set => SetProperty(ref _help, value); }
+
         private bool _isWin;
-        public bool IsWin
-        {
-            get => _isWin;
-            set => SetProperty(ref _isWin, value);
-        }
+        public bool IsWin { get => _isWin; set => SetProperty(ref _isWin, value); }
 
         private string _score = string.Empty;
-        public string Score
-        {
-            get => _score;
-            set => SetProperty(ref _score, value);
-        }
+        public string Score { get => _score; set => SetProperty(ref _score, value); }
 
         private TimeSpan _timeSpent;
-        public TimeSpan TimeSpent
-        {
-            get => _timeSpent;
-            set => SetProperty(ref _timeSpent, value);
-        }
+        public TimeSpan TimeSpent { get => _timeSpent; set => SetProperty(ref _timeSpent, value); }
 
-        public MenuViewModel(IWindowService windowService, IWindowService mainWindowService)
+        public MenuViewModel(IWindowService authWindowService, IWindowService mainWindowService)
         {
-            _windowService = windowService;
+            _authWindowService = authWindowService;
             _mainWindowService = mainWindowService;
             _dataBase = new ApplicationContext();
+
             PageVisibility = new ObservableCollection<bool>(Enumerable.Repeat(false, 6));
             Mediator.PageId = 0;
             PageVisibility[0] = true;
+
             Login = Mediator.Login;
             if (!string.IsNullOrEmpty(Login))
                 LoadGameResults();
+
             LogInCommand = new RelayCommand(_ => ExecuteLogIn(), _ => CanAuthenticate());
             RegisterCommand = new RelayCommand(_ => ExecuteRegister(), _ => CanAuthenticate());
-            CloseWindowCommand = new RelayCommand(_ => _windowService.CloseWindow());
-            GoCommand = new RelayCommand(param =>
-            {
-                if (int.TryParse(param?.ToString(), out int idx))
-                {
-                    Navigate(idx);
-                }
-            }, _ => true);
+            CloseWindowCommand = new RelayCommand(_ => _authWindowService.CloseWindow());
+            GoCommand = new RelayCommand(param => NavigatePage(param), _ => true);
             StartCommand = new RelayCommand(_ => ExecuteStart(), _ => CanStartGame());
         }
 
@@ -128,8 +116,8 @@ namespace Saper.ViewModels
             OnPropertyChanged(nameof(GameResultsList));
         }
 
-        private bool CanAuthenticate()
-            => !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
+        private bool CanAuthenticate() =>
+            !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
 
         private void ExecuteLogIn()
         {
@@ -139,10 +127,10 @@ namespace Saper.ViewModels
                 Help = "Такого акаунту не існує";
                 return;
             }
+
             Mediator.Login = user.Login;
             Mediator.UserId = user.Id;
             Mediator.IsMuted = user.IsSoundMuted;
-            _dataBase.SaveChanges();
 
             Help = string.Empty;
             Navigate(2);
@@ -156,7 +144,14 @@ namespace Saper.ViewModels
                 Help = "Ім'я зайняте, оберіть інше";
                 return;
             }
-            var newUser = new User { Login = Login, Password = Password, IsSoundMuted = false };
+
+            var newUser = new User
+            {
+                Login = Login,
+                Password = Password,
+                IsSoundMuted = false
+            };
+
             _dataBase.Users.Add(newUser);
             _dataBase.SaveChanges();
 
@@ -170,9 +165,12 @@ namespace Saper.ViewModels
         }
 
         private bool CanStartGame()
-            => int.TryParse(FieldSize, out var size)
-               && size >= 10 && size <= 50
-               && new[] { "Easy", "Medium", "Hard" }.Contains(Difficulty);
+        {
+            return int.TryParse(FieldSize, out var size)
+                && size >= MinFieldSize
+                && size <= MaxFieldSize
+                && AllowedDifficulties.Contains(Difficulty);
+        }
 
         private void ExecuteStart()
         {
@@ -181,30 +179,47 @@ namespace Saper.ViewModels
                 Mediator.Rows = size;
                 Mediator.Columns = size;
                 Mediator.Difficulty = Difficulty;
-                _dataBase.SaveChanges();
                 _mainWindowService.OpenWindow();
             }
+        }
+
+        private void NavigatePage(object? param)
+        {
+            if (int.TryParse(param?.ToString(), out int idx))
+                Navigate(idx);
         }
 
         private void Navigate(int idx)
         {
             Mediator.PageId = idx;
             for (int i = 0; i < PageVisibility.Count; i++)
-                PageVisibility[i] = i == idx;
+                PageVisibility[i] = (i == idx);
             OnPropertyChanged(nameof(PageVisibility));
             Help = string.Empty;
 
             if (idx == 0 || idx == 1)
-            {
-                Login = string.Empty;
-                Password = string.Empty;
-            }
+                ClearCredentials();
             else if (idx == 2)
-            {
-                Pages[0] = true;
-                Pages[1] = false;
-                OnPropertyChanged(nameof(Pages));
-            }
+                UpdatePages(0);
+        }
+
+        private void ClearCredentials()
+        {
+            Login = string.Empty;
+            Password = string.Empty;
+        }
+
+        private void UpdatePages(int activeIndex)
+        {
+            for (int i = 0; i < Pages.Count; i++)
+                Pages[i] = (i == activeIndex);
+            OnPropertyChanged(nameof(Pages));
+        }
+
+        private void UpdateAuthCommands()
+        {
+            LogInCommand.RaiseCanExecuteChanged();
+            RegisterCommand.RaiseCanExecuteChanged();
         }
 
         protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? propName = null)
@@ -215,7 +230,7 @@ namespace Saper.ViewModels
             return true;
         }
 
-        protected void OnPropertyChanged(string? name)
-            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        protected void OnPropertyChanged(string? name) =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }
