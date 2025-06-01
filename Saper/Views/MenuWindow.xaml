@@ -129,7 +129,7 @@
 
                 <Grid Grid.Row="0">
                     <Rectangle Fill="#A42a2c" Width="1020"  Margin="0 230 0 40" Opacity="0.7" RadiusX="35" RadiusY="35"/>
-                    <DataGrid ColumnHeaderHeight="70" Margin="0 260 0 70" HeadersVisibility="Column" BorderBrush="Black" Width="1000" Background="Transparent" Foreground="White" FontFamily="{StaticResource IrpinType}" RowBackground="Transparent" AutoGenerateColumns="False" FontSize="32" ItemsSource="{Binding GameResultsList}" IsReadOnly="True" GridLinesVisibility="All">
+                    <DataGrid ColumnHeaderHeight="70" Margin="0 260 0 70" HeadersVisibility="Column" BorderBrush="Black" Width="1000" Background="Transparent" Foreground="White" FontFamily="{StaticResource IrpinType}" RowBackground="Transparent" AutoGenerateColumns="False" FontSize="32" ItemsSource="{Binding GameResultsList}" IsReadOnly="True" GridLinesVisibility="All" SelectionChanged="DataGrid_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="250" Header="Перемога" Binding="{Binding IsWin, Converter={StaticResource BoolToVictoryConverter}}"/>
                             <DataGridTextColumn Width="250" Header="Очки" Binding="{Binding Score}"/>

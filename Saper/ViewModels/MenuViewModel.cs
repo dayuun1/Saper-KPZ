@@ -12,13 +12,105 @@ namespace Saper.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        private readonly IWindowService _authWindowService;
+        private readonly IWindowService _windowService;
         private readonly IWindowService _mainWindowService;
         private readonly ApplicationContext _dataBase;
 
-        private const int MinFieldSize = 10;
-        private const int MaxFieldSize = 50;
-        private readonly string[] AllowedDifficulties = { "Easy", "Medium", "Hard" };
+        private static readonly string[] AllowedDifficulties = { "Easy", "Medium", "Hard" };
+
+        #region Fields
+
+        private string _login = string.Empty;
+        private string _password = string.Empty;
+        private string _fieldSize = "10";
+        private string _difficulty = "Hard";
+        private string _help = string.Empty;
+        private bool _isWin;
+        private string _score = string.Empty;
+        private TimeSpan _timeSpent;
+
+        #endregion
+
+        #region Properties
+
+        public ObservableCollection<GameResult> GameResultsList { get; } = new();
+        public ObservableCollection<bool> Pages { get; } = new ObservableCollection<bool> { true, false };
+        public ObservableCollection<bool> PageVisibility { get; }
+
+        public string Login
+        {
+            get => _login;
+            set
+            {
+                if (SetProperty(ref _login, value.Trim()))
+                {
+                    LogInCommand?.RaiseCanExecuteChanged();
+                    RegisterCommand?.RaiseCanExecuteChanged(); 
+                }
+            }
+        }
+
+        public string Password
+        {
+            get => _password;
+            set
+            {
+                if (SetProperty(ref _password, value.Trim()))
+                {
+                    LogInCommand?.RaiseCanExecuteChanged();
+                    RegisterCommand?.RaiseCanExecuteChanged(); 
+                }
+            }
+        }
+
+
+        public string FieldSize
+        {
+            get => _fieldSize;
+            set
+            {
+                if (SetProperty(ref _fieldSize, value))
+                    StartCommand?.RaiseCanExecuteChanged();
+            }
+        }
+
+        public string Difficulty
+        {
+            get => _difficulty;
+            set
+            {
+                if (SetProperty(ref _difficulty, value))
+                    StartCommand?.RaiseCanExecuteChanged();
+            }
+        }
+
+        public string Help
+        {
+            get => _help;
+            set => SetProperty(ref _help, value);
+        }
+
+        public bool IsWin
+        {
+            get => _isWin;
+            set => SetProperty(ref _isWin, value);
+        }
+
+        public string Score
+        {
+            get => _score;
+            set => SetProperty(ref _score, value);
+        }
+
+        public TimeSpan TimeSpent
+        {
+            get => _timeSpent;
+            set => SetProperty(ref _timeSpent, value);
+        }
+
+        #endregion
+
+        #region Commands
 
         public RelayCommand LogInCommand { get; }
         public RelayCommand RegisterCommand { get; }
@@ -26,85 +118,48 @@ namespace Saper.ViewModels
         public RelayCommand GoCommand { get; }
         public RelayCommand StartCommand { get; }
 
-        public ObservableCollection<GameResult> GameResultsList { get; } = new();
-        public ObservableCollection<bool> Pages { get; } = new() { true, false };
-        public ObservableCollection<bool> PageVisibility { get; }
+        #endregion
 
-        private string _login = string.Empty;
-        public string Login
+        #region Constructor
+
+        public MenuViewModel(IWindowService windowService, IWindowService mainWindowService)
         {
-            get => _login;
-            set
-            {
-                if (SetProperty(ref _login, value.Trim()))
-                    UpdateAuthCommands();
-            }
-        }
-
-        private string _password = string.Empty;
-        public string Password
-        {
-            get => _password;
-            set
-            {
-                if (SetProperty(ref _password, value.Trim()))
-                    UpdateAuthCommands();
-            }
-        }
-
-        private string _fieldSize = "10";
-        public string FieldSize
-        {
-            get => _fieldSize;
-            set
-            {
-                if (SetProperty(ref _fieldSize, value))
-                    StartCommand.RaiseCanExecuteChanged();
-            }
-        }
-
-        private string _difficulty = "Hard";
-        public string Difficulty
-        {
-            get => _difficulty;
-            set
-            {
-                if (SetProperty(ref _difficulty, value))
-                    StartCommand.RaiseCanExecuteChanged();
-            }
-        }
-
-        private string _help = string.Empty;
-        public string Help { get => _help; set => SetProperty(ref _help, value); }
-
-        private bool _isWin;
-        public bool IsWin { get => _isWin; set => SetProperty(ref _isWin, value); }
-
-        private string _score = string.Empty;
-        public string Score { get => _score; set => SetProperty(ref _score, value); }
-
-        private TimeSpan _timeSpent;
-        public TimeSpan TimeSpent { get => _timeSpent; set => SetProperty(ref _timeSpent, value); }
-
-        public MenuViewModel(IWindowService authWindowService, IWindowService mainWindowService)
-        {
-            _authWindowService = authWindowService;
-            _mainWindowService = mainWindowService;
+            _windowService = windowService ?? throw new ArgumentNullException(nameof(windowService));
+            _mainWindowService = mainWindowService ?? throw new ArgumentNullException(nameof(mainWindowService));
             _dataBase = new ApplicationContext();
 
             PageVisibility = new ObservableCollection<bool>(Enumerable.Repeat(false, 6));
             Mediator.PageId = 0;
             PageVisibility[0] = true;
 
-            Login = Mediator.Login;
-            if (!string.IsNullOrEmpty(Login))
-                LoadGameResults();
-
+            // Ініціалізуємо команди ПЕРШИМИ!
             LogInCommand = new RelayCommand(_ => ExecuteLogIn(), _ => CanAuthenticate());
             RegisterCommand = new RelayCommand(_ => ExecuteRegister(), _ => CanAuthenticate());
-            CloseWindowCommand = new RelayCommand(_ => _authWindowService.CloseWindow());
-            GoCommand = new RelayCommand(param => NavigatePage(param), _ => true);
+            CloseWindowCommand = new RelayCommand(_ => NavigateToMenu());
+            GoCommand = new RelayCommand(param => NavigateFromParam(param), _ => true);
             StartCommand = new RelayCommand(_ => ExecuteStart(), _ => CanStartGame());
+
+            // Після ініціалізації команд присвоюємо Login,
+            // щоб не було NullReferenceException в RaiseCanExecuteChanged
+            Login = Mediator.Login;
+
+            if (!string.IsNullOrEmpty(Login))
+                LoadGameResults();
+        }
+        private void NavigateToMenu()
+        {
+            Navigate(0);  
+        }
+        #endregion
+
+        #region Private Methods
+
+        private void NavigateFromParam(object? param)
+        {
+            if (int.TryParse(param?.ToString(), out int idx))
+            {
+                Navigate(idx);
+            }
         }
 
         private void LoadGameResults()
@@ -113,11 +168,12 @@ namespace Saper.ViewModels
             var results = _dataBase.GameResults.Where(r => r.UserId == Mediator.UserId);
             foreach (var r in results)
                 GameResultsList.Add(r);
+
             OnPropertyChanged(nameof(GameResultsList));
         }
 
-        private bool CanAuthenticate() =>
-            !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
+        private bool CanAuthenticate()
+            => !string.IsNullOrWhiteSpace(Login) && !string.IsNullOrWhiteSpace(Password);
 
         private void ExecuteLogIn()
         {
@@ -131,6 +187,8 @@ namespace Saper.ViewModels
             Mediator.Login = user.Login;
             Mediator.UserId = user.Id;
             Mediator.IsMuted = user.IsSoundMuted;
+
+            _dataBase.SaveChanges();
 
             Help = string.Empty;
             Navigate(2);
@@ -151,7 +209,6 @@ namespace Saper.ViewModels
                 Password = Password,
                 IsSoundMuted = false
             };
-
             _dataBase.Users.Add(newUser);
             _dataBase.SaveChanges();
 
@@ -165,12 +222,9 @@ namespace Saper.ViewModels
         }
 
         private bool CanStartGame()
-        {
-            return int.TryParse(FieldSize, out var size)
-                && size >= MinFieldSize
-                && size <= MaxFieldSize
-                && AllowedDifficulties.Contains(Difficulty);
-        }
+            => int.TryParse(FieldSize, out var size)
+               && size >= 10 && size <= 50
+               && AllowedDifficulties.Contains(Difficulty);
 
         private void ExecuteStart()
         {
@@ -179,47 +233,32 @@ namespace Saper.ViewModels
                 Mediator.Rows = size;
                 Mediator.Columns = size;
                 Mediator.Difficulty = Difficulty;
-                _mainWindowService.OpenWindow();
+                _dataBase.SaveChanges();
+                _mainWindowService.OpenMainWindow();
             }
-        }
-
-        private void NavigatePage(object? param)
-        {
-            if (int.TryParse(param?.ToString(), out int idx))
-                Navigate(idx);
         }
 
         private void Navigate(int idx)
         {
             Mediator.PageId = idx;
+
             for (int i = 0; i < PageVisibility.Count; i++)
-                PageVisibility[i] = (i == idx);
+                PageVisibility[i] = i == idx;
+
             OnPropertyChanged(nameof(PageVisibility));
             Help = string.Empty;
 
             if (idx == 0 || idx == 1)
-                ClearCredentials();
+            {
+                Login = string.Empty;
+                Password = string.Empty;
+            }
             else if (idx == 2)
-                UpdatePages(0);
-        }
-
-        private void ClearCredentials()
-        {
-            Login = string.Empty;
-            Password = string.Empty;
-        }
-
-        private void UpdatePages(int activeIndex)
-        {
-            for (int i = 0; i < Pages.Count; i++)
-                Pages[i] = (i == activeIndex);
-            OnPropertyChanged(nameof(Pages));
-        }
-
-        private void UpdateAuthCommands()
-        {
-            LogInCommand.RaiseCanExecuteChanged();
-            RegisterCommand.RaiseCanExecuteChanged();
+            {
+                Pages[0] = true;
+                Pages[1] = false;
+                OnPropertyChanged(nameof(Pages));
+            }
         }
 
         protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? propName = null)
@@ -230,7 +269,9 @@ namespace Saper.ViewModels
             return true;
         }
 
-        protected void OnPropertyChanged(string? name) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        protected void OnPropertyChanged(string? name)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
+        #endregion
     }
 }

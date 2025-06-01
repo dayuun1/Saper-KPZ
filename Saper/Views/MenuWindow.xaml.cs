@@ -14,6 +14,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Saper.Services;
+
 
 namespace Saper.Views
 {
@@ -25,12 +27,14 @@ namespace Saper.Views
         public MenuWindow()
         {
             var windowService = new WindowService();
-            var mainWindowService = new MainWindowService();
-            DataContext = new MenuViewModel(windowService, mainWindowService);
+            DataContext = new MenuViewModel(windowService, windowService);
 
             InitializeComponent();
-
         }
 
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

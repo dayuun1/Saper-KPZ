@@ -17,6 +17,7 @@ namespace Saper.ViewModels
         private readonly IGameDatabaseService _databaseService;
         private readonly IMenuStateService _menuStateService;
         private readonly IWindowService _windowService;
+        private readonly IWindowService _mainWindowService;  // <-- Додано, якщо потрібно
         private readonly GameConfiguration _gameConfiguration;
 
         public ObservableCollection<CellViewModel> Cells { get; }
@@ -28,6 +29,7 @@ namespace Saper.ViewModels
         public ICommand ChangeMenuViewCommand { get; private set; }
         public ICommand ShowSettingsCommand { get; private set; }
         public ICommand QuitCommand { get; private set; }
+        public ICommand ExitCommand { get; private set; }  // Якщо потрібно
 
         public int Score => _gameManager.Score;
         public bool IsWin => _gameManager.IsWin;
@@ -36,31 +38,45 @@ namespace Saper.ViewModels
         public bool CanUseSafeClick => _gameManager.SafeClick > 0;
 
         public bool MenuVisibility => _menuStateService.MenuVisibility;
-        public bool[] MenuSettingVisibility => new bool[] { _menuStateService.MainMenuVisible, _menuStateService.SettingsVisible };
+        public bool[] MenuSettingVisibility => new[]
+        {
+            _menuStateService.MainMenuVisible,
+            _menuStateService.SettingsVisible
+        };
 
         private bool _isGameOver;
         public bool IsGameOver
         {
             get => _isGameOver;
-            set { _isGameOver = value; OnPropertyChanged(nameof(IsGameOver)); }
+            set
+            {
+                _isGameOver = value;
+                OnPropertyChanged(nameof(IsGameOver));
+            }
         }
 
         private string _gameResultMessage = "";
         public string GameResultMessage
         {
             get => _gameResultMessage;
-            set { _gameResultMessage = value; OnPropertyChanged(nameof(GameResultMessage)); }
+            set
+            {
+                _gameResultMessage = value;
+                OnPropertyChanged(nameof(GameResultMessage));
+            }
         }
 
         public GameViewModel(
             GameManager gameManager,
             IWindowService windowService,
+            IWindowService mainWindowService,   // якщо потрібен другий сервіс
             IGameDatabaseService databaseService,
             IMenuStateService menuStateService,
             GameConfiguration gameConfiguration)
         {
             _gameManager = gameManager;
             _windowService = windowService;
+            _mainWindowService = mainWindowService;
             _databaseService = databaseService;
             _menuStateService = menuStateService;
             _gameConfiguration = gameConfiguration;
@@ -80,24 +96,32 @@ namespace Saper.ViewModels
             CellClickCommand = new CellClickCommand(this, _gameManager);
             ToggleFlagCommand = new ToggleFlagCommand(this, _gameManager);
             SafeClickCommand = new SafeClickCommand(this, _gameManager);
-            RestartGameCommand = new RelayCommand(param => RestartGame());
+            RestartGameCommand = new RelayCommand(_ => RestartGame());
 
-            ChangeMenuViewCommand = new RelayCommand(obj =>
+            ChangeMenuViewCommand = new RelayCommand(_ =>
             {
                 _menuStateService.ToggleMenu();
                 NotifyMenuStateChanged();
             });
 
-            ShowSettingsCommand = new RelayCommand(obj =>
+            ShowSettingsCommand = new RelayCommand(_ =>
             {
                 _menuStateService.ShowSettings();
                 NotifyMenuStateChanged();
             });
 
-            QuitCommand = new RelayCommand(obj =>
+            QuitCommand = new RelayCommand(_ =>
             {
                 _databaseService.SaveUserSession(_gameConfiguration.UserId);
-                _windowService.OpenWindow();
+
+                _mainWindowService.OpenMenuWindow();
+                _mainWindowService.CloseCurrentWindow();
+            });
+
+            ExitCommand = new RelayCommand(_ =>
+            {
+                _mainWindowService.OpenMenuWindow();
+                _mainWindowService.CloseCurrentWindow();
             });
         }
 
@@ -130,13 +154,12 @@ namespace Saper.ViewModels
                 for (int j = 0; j < _gameManager.Columns; j++)
                 {
                     var cell = _gameManager.Minefield.Cells[i, j];
-                    var cellVM = new CellViewModel(i, j)
+                    Cells.Add(new CellViewModel(i, j)
                     {
                         IsOpend = cell.IsOpend,
                         CellType = cell.CellType,
                         IsFlagged = cell.IsFlagged
-                    };
-                    Cells.Add(cellVM);
+                    });
                 }
             }
         }
@@ -145,8 +168,9 @@ namespace Saper.ViewModels
         {
             _gameManager.RestartGame();
             InitializeCells();
+
             IsGameOver = false;
-            GameResultMessage = "";
+            GameResultMessage = string.Empty;
 
             NotifyGameStateChanged();
             NotifySafeClickChanged();
@@ -179,15 +203,9 @@ namespace Saper.ViewModels
             OnPropertyChanged(nameof(IsWin));
         }
 
-        public void NotifyScoreChanged()
-        {
-            OnPropertyChanged(nameof(Score));
-        }
+        public void NotifyScoreChanged() => OnPropertyChanged(nameof(Score));
 
-        public void NotifySafeClickChanged()
-        {
-            OnPropertyChanged(nameof(CanUseSafeClick));
-        }
+        public void NotifySafeClickChanged() => OnPropertyChanged(nameof(CanUseSafeClick));
 
         private void NotifyMenuStateChanged()
         {
@@ -195,9 +213,7 @@ namespace Saper.ViewModels
             OnPropertyChanged(nameof(MenuVisibility));
         }
 
-        protected void OnPropertyChanged(string name)
-        {
+        protected void OnPropertyChanged(string name) =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
     }
 }
